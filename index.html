@@ -1,0 +1,1833 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OC_06_Communications_BRIEF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   Okanagan College Sustainability Plan
+   Supply Chain, director brief
+   Brand: Cherry E10054, Cabernet 782434, Charcoal 50534C,
+          Lake 005F63, Sunset FF8204
+   Type:  Poppins (display), Noto Serif (body)
+   ============================================================ */
+
+:root {
+  --cherry: #E10054;
+  --cabernet: #782434;
+  --charcoal: #50534C;
+  --lake: #005F63;
+  --sunset: #FF8204;
+  --sky: #2ECDDC;
+
+  --bg: #FFFFFF;
+  --surface: #F7F6F4;
+  --surface-2: #EFEDE9;
+  --line: #DAD7D1;
+  --line-soft: #E8E5E0;
+  --ink: #33352F;
+  --ink-2: #50534C;
+  --ink-3: #7A7C74;
+  --accent: #E10054;
+  --accent-ink: #782434;
+  --on-accent: #FFFFFF;
+  --hero-bg: #782434;
+  --hero-ink: #FFFFFF;
+  --hero-ink-2: #E9D7DA;
+  --chip-bg: #EFEDE9;
+  --chip-ink: #50534C;
+  --ok: #005F63;
+  --warn: #A8531F;
+  --rec-bg: rgba(225,0,84,.045);
+  --badge-bg: rgba(225,79,61,.13);
+  --badge-ink: #782434;
+  --shadow: 0 1px 2px rgba(51,53,47,.06), 0 8px 24px rgba(51,53,47,.06);
+  --radius: 10px;
+  --maxw: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171915;
+    --surface: #1F221D;
+    --surface-2: #262A24;
+    --line: #3A3E36;
+    --line-soft: #2C302A;
+    --ink: #EAE7E1;
+    --ink-2: #C6C3BC;
+    --ink-3: #94918A;
+    --accent: #E10054;
+    --accent-ink: #FF8204;
+    --on-accent: #FFFFFF;
+    --hero-bg: #2A1418;
+    --hero-ink: #FFFFFF;
+    --hero-ink-2: #D9B9BE;
+    --chip-bg: #262A24;
+    --chip-ink: #C6C3BC;
+    --ok: #2ECDDC;
+    --warn: #FF8204;
+    --rec-bg: rgba(255,130,4,.06);
+    --badge-bg: rgba(255,130,4,.14);
+    --badge-ink: #FF8204;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #171915;
+  --surface: #1F221D;
+  --surface-2: #262A24;
+  --line: #3A3E36;
+  --line-soft: #2C302A;
+  --ink: #EAE7E1;
+  --ink-2: #C6C3BC;
+  --ink-3: #94918A;
+  --accent: #E10054;
+  --accent-ink: #FF8204;
+  --on-accent: #FFFFFF;
+  --hero-bg: #2A1418;
+  --hero-ink: #FFFFFF;
+  --hero-ink-2: #D9B9BE;
+  --chip-bg: #262A24;
+  --chip-ink: #C6C3BC;
+  --ok: #2ECDDC;
+  --warn: #FF8204;
+  --rec-bg: rgba(255,130,4,.06);
+  --badge-bg: rgba(255,130,4,.14);
+  --badge-ink: #FF8204;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .disp, .num, th, .chip, .btn, .tag, .kicker {
+  font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- masthead ---------- */
+
+.masthead { background: var(--bg); border-bottom: 1px solid var(--line); }
+.mast-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0 20px; }
+.logo { height: 40px; width: auto; display: block; }
+.logo-light { display: block; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-light { display: none; }
+  :root:not([data-theme="light"]) .logo-dark { display: block; }
+}
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark { display: block; }
+:root[data-theme="light"] .logo-light { display: block; }
+:root[data-theme="light"] .logo-dark { display: none; }
+
+.btn {
+  background: transparent; color: var(--ink-3);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 15px; font-size: 11px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+.badge {
+  display: inline-block; background: var(--badge-bg); color: var(--badge-ink);
+  font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 7px 13px; border-radius: 5px; margin: 0 0 22px;
+}
+
+.mast-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr;
+  gap: 34px; align-items: start; padding-bottom: 34px;
+}
+h1 {
+  font-size: clamp(32px, 5vw, 54px); line-height: 1.03;
+  font-weight: 600; margin: 0 0 16px; letter-spacing: -.02em;
+}
+h1 .l1 { display: block; color: var(--ink); }
+h1 .l2 { display: block; color: var(--accent); }
+.mast-sub { font-size: 16px; color: var(--ink-2); margin: 0; }
+.mast-sub em { font-style: normal; color: var(--accent-ink); }
+
+.mast-meta { margin: 6px 0 0; text-align: right; }
+.mast-meta > div { margin-bottom: 7px; font-size: 13px; line-height: 1.45; }
+.mast-meta dt {
+  display: inline; font-family: "Poppins", sans-serif; font-weight: 600;
+  font-size: 12px; color: var(--ink); margin-right: 6px;
+}
+.mast-meta dd { display: inline; margin: 0; color: var(--ink-3); }
+
+/* ---------- sections ---------- */
+
+section { padding: 52px 0; border-bottom: 1px solid var(--line-soft); }
+section:last-of-type { border-bottom: 0; }
+h2 {
+  font-size: clamp(22px, 2.4vw, 29px); font-weight: 600;
+  margin: 0 0 6px; letter-spacing: -.01em;
+}
+.sub {
+  color: var(--ink-3); font-size: 15px; margin: 0 0 26px; max-width: 74ch;
+}
+h3 {
+  font-size: 17px; font-weight: 600; margin: 30px 0 10px;
+  letter-spacing: -.005em;
+}
+p { margin: 0 0 14px; }
+.lead { font-size: 17.5px; }
+
+/* ---------- figures ---------- */
+
+.figs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin: 0;
+}
+.thesis {
+  font-size: clamp(17px, 1.7vw, 20px); color: var(--ink);
+  max-width: 76ch; margin: 0 0 26px;
+}
+.fig {
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: var(--radius); padding: 20px 20px 18px;
+  display: flex; flex-direction: column;
+}
+.fig.hero { background: var(--hero-bg); border-color: var(--hero-bg); }
+.fig .num {
+  font-size: clamp(30px, 3.6vw, 40px); font-weight: 600; line-height: 1;
+  color: var(--accent-ink); letter-spacing: -.02em;
+}
+.fig.hero .num { color: var(--hero-ink); }
+.fig .unit { font-size: .5em; font-weight: 500; margin-left: 3px; }
+.fig .lbl {
+  font-family: "Poppins", sans-serif; font-size: 13.5px; font-weight: 600;
+  margin: 10px 0 5px; color: var(--ink);
+}
+.fig.hero .lbl { color: var(--hero-ink); }
+.fig .sub2 { font-size: 13px; color: var(--ink-3); margin: 0; line-height: 1.5; }
+.fig.hero .sub2 { color: var(--hero-ink-2); }
+
+/* ---------- locator band ---------- */
+
+#locator { background: var(--surface); border-top: 1px solid var(--line-soft); }
+.loc-kicker {
+  font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3);
+  margin: 0 0 22px;
+}
+.locator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.loc-col { border-top: 2px solid var(--line); padding-top: 12px; }
+.loc-col.active { border-top-color: var(--accent); }
+.loc-col h4 {
+  font-family: "Poppins", sans-serif; font-size: 14px; font-weight: 600;
+  margin: 0 0 12px; color: var(--ink);
+}
+.loc-col.active h4 { color: var(--accent); }
+.loc-item { font-size: 13.5px; color: var(--ink-3); margin-bottom: 7px; line-height: 1.4; }
+.loc-item.on { color: var(--ink); font-weight: 600; font-family: "Poppins", sans-serif; font-size: 13px; }
+.loc-item.on i { font-style: normal; color: var(--accent); font-weight: 500; }
+.loc-item.done i { font-style: normal; color: var(--ok); font-size: 11.5px; }
+
+/* ---------- the date rail ---------- */
+
+.rail { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); padding-top: 46px; }
+.rail-band {
+  position: absolute; top: 0; left: 20%; width: 60%; height: 46px;
+  border: 1px dashed var(--accent); border-bottom: 0; border-radius: 7px 7px 0 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.rail-band span {
+  background: var(--bg); padding: 0 12px; color: var(--accent-ink);
+  font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: .11em; text-transform: uppercase;
+}
+.rail-line { position: absolute; top: 45px; left: 0; right: 0; height: 2px; background: var(--line); }
+.rail-node { text-align: center; padding: 0 12px; position: relative; }
+.rail-node .dot {
+  position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--line);
+}
+.rail-node.hot .dot { border-color: var(--accent); background: var(--accent); }
+.rail-node .d {
+  margin-top: 22px; font-family: "Poppins", sans-serif;
+  font-weight: 600; font-size: 14.5px; color: var(--ink);
+}
+.rail-node.hot .d { color: var(--accent-ink); }
+.rail-node .w { font-size: 13px; color: var(--ink-3); margin: 5px 0 0; line-height: 1.45; }
+
+/* ---------- two column ---------- */
+
+.cols { display: grid; grid-template-columns: 1.62fr 1fr; gap: 34px; align-items: start; }
+.aside {
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 22px;
+}
+.aside h3 { margin-top: 0; font-size: 15px; }
+.aside p { font-size: 14.5px; color: var(--ink-2); }
+.aside p:last-child { margin-bottom: 0; }
+
+/* ---------- tables ---------- */
+
+.tw { overflow-x: auto; margin: 18px 0 0; }
+table {
+  width: 100%; border-collapse: collapse; font-size: 14px;
+  table-layout: fixed;
+}
+th {
+  text-align: left; font-size: 11px; font-weight: 600;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3);
+  padding: 0 12px 9px; border-bottom: 1.5px solid var(--line);
+  vertical-align: bottom;
+}
+td {
+  padding: 11px 12px; border-bottom: 1px solid var(--line-soft);
+  vertical-align: middle; color: var(--ink-2);
+}
+td.prose { vertical-align: top; }
+.t-top td { vertical-align: top; }
+.t-top td.strong2 { color: var(--ink); font-weight: 500; }
+th.c, td.c { text-align: center; }
+td.nw { white-space: nowrap; }
+td.strong { color: var(--ink); font-weight: 500; font-family: "Poppins", sans-serif; font-size: 13px; }
+tr:last-child td { border-bottom: 0; }
+caption {
+  caption-side: bottom; text-align: left; font-size: 12.5px;
+  color: var(--ink-3); padding-top: 12px; line-height: 1.5;
+}
+
+/* ---------- chips and tags ---------- */
+
+.chip {
+  display: inline-block; background: var(--chip-bg); color: var(--chip-ink);
+  border-radius: 999px; padding: 3px 10px; font-size: 11px; font-weight: 600;
+  letter-spacing: .04em;
+}
+.chip.na { background: transparent; border: 1px dashed var(--line); color: var(--ink-3); }
+.chip.go { background: var(--accent); color: var(--on-accent); }
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ink-3);
+  border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px;
+}
+
+/* ---------- target ---------- */
+
+.targets { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tcard {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 24px; background: var(--surface);
+}
+.tcard .tag { margin-bottom: 12px; }
+.tcard .stmt {
+  font-size: 17px; color: var(--ink); line-height: 1.5; margin: 0 0 14px;
+  font-weight: 500;
+}
+.tcard .base {
+  font-size: 13.5px; color: var(--ink-3); border-top: 1px solid var(--line-soft);
+  padding-top: 12px; margin: 0;
+}
+.tcard .base b { color: var(--accent-ink); font-family: "Poppins", sans-serif; font-size: 13px; }
+
+/* ---------- tiers ---------- */
+
+.tierframe {
+  background: var(--surface-2); border-radius: var(--radius);
+  padding: 18px 22px; font-size: 16px; color: var(--ink);
+  margin: 0 0 22px; border-left: 3px solid var(--accent);
+}
+/* ---------- tier columns ---------- */
+
+#tierTable table { table-layout: fixed; }
+.tier-h { padding: 0 18px 18px !important; vertical-align: top; border-bottom: 2px solid var(--line) !important; }
+.tier-h.recd { border-top: 3px solid var(--accent); background: var(--rec-bg); }
+.tier-h .tno {
+  display: block; font-family: "Poppins", sans-serif; font-weight: 600;
+  font-size: 28px; letter-spacing: -.02em; color: var(--ink);
+  text-transform: none; margin-top: 16px;
+}
+.tier-h.recd .tno { color: var(--accent); }
+.tier-h .tname {
+  display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3); margin: 7px 0 9px;
+}
+.tier-h.recd .tname { color: var(--accent); }
+.tier-h .tsub {
+  display: block; font-family: "Noto Serif", Georgia, serif; font-size: 14px;
+  font-weight: 600; color: var(--ink); text-transform: none;
+  letter-spacing: 0; line-height: 1.4;
+}
+td.tier-c { padding: 16px 18px; vertical-align: top; }
+td.tier-c.recd { background: var(--rec-bg); }
+td.tier-lbl {
+  padding: 16px 16px 16px 0; vertical-align: top;
+  font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: .11em; text-transform: uppercase; color: var(--ink-3);
+}
+td.tier-c ul { margin: 0; padding-left: 17px; }
+td.tier-c li { margin-bottom: 5px; }
+td.tier-c li:last-child { margin-bottom: 0; }
+
+/* ---------- years ---------- */
+
+.ytabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.ytab {
+  font-family: "Poppins", sans-serif; font-size: 12.5px; font-weight: 500;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 8px 15px; cursor: pointer; color: var(--ink-2);
+}
+.ytab.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+.ytab .st { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin-left: 7px; vertical-align: 1px; }
+.ytab.on .st { background: var(--on-accent); }
+
+.ypanel { display: none; }
+.ypanel.on { display: block; }
+.yhead {
+  display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: baseline;
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  margin-bottom: 6px;
+}
+.yhead .yt { font-family: "Poppins", sans-serif; font-size: 20px; font-weight: 600; color: var(--ink); }
+.yhead .ym { font-size: 13px; color: var(--ink-3); }
+.youtcome {
+  font-size: 16.5px; color: var(--ink); margin: 16px 0 4px; max-width: 82ch;
+}
+.youtcome b { color: var(--accent-ink); font-weight: 600; }
+
+/* ---------- asks ---------- */
+
+.asks { counter-reset: a; }
+.ask {
+  display: grid; grid-template-columns: 42px 1fr; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid var(--line-soft);
+}
+.ask:last-child { border-bottom: 0; }
+.ask::before {
+  counter-increment: a; content: counter(a);
+  font-family: "Poppins", sans-serif; font-size: 19px; font-weight: 600;
+  color: var(--accent); line-height: 1.2;
+}
+.ask h4 { font-family: "Poppins", sans-serif; font-size: 15.5px; font-weight: 600; margin: 0 0 5px; color: var(--ink); }
+.ask p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+
+/* ---------- footer ---------- */
+
+.foot {
+  background: var(--surface); border-top: 1px solid var(--line);
+  padding: 30px 0 44px; font-size: 13px; color: var(--ink-3);
+}
+.foot p { max-width: 96ch; }
+.foot b { color: var(--ink-2); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 980px) {
+  .figs { grid-template-columns: repeat(2, 1fr); }
+  .locator { grid-template-columns: repeat(2, 1fr); }
+  .mast-grid { grid-template-columns: 1fr; gap: 22px; }
+  .mast-meta { text-align: left; }
+  .cols { grid-template-columns: 1fr; }
+  .targets { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .rail { grid-template-columns: 1fr; padding-top: 0; }
+  .rail-band, .rail-line { display: none; }
+  .rail-node { text-align: left; padding: 12px 0 12px 16px; border-left: 2px solid var(--line); }
+  .rail-node.hot { border-left-color: var(--accent); }
+  .rail-node .dot { top: 16px; left: -8px; transform: none; }
+  .rail-node .d { margin-top: 0; }
+}
+@media (max-width: 620px) {
+  .wrap { padding: 0 18px; }
+  .figs { grid-template-columns: 1fr; }
+  .locator { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============================================================
+   Supply Chain additions. New class prefixes only, to avoid
+   collision with the shared component classes above:
+   cb- for the carbon block, mx- for the materials matrix,
+   lv- for the lever re-ranking, sc- for local one-offs.
+   ============================================================ */
+
+/* ---------- carbon headline ---------- */
+
+.cb-headline {
+  background: var(--hero-bg); color: var(--hero-ink);
+  border-radius: var(--radius); padding: 26px 30px;
+  font-family: "Poppins", sans-serif; font-weight: 500;
+  font-size: clamp(17px, 2vw, 22px); line-height: 1.4;
+  letter-spacing: -.01em; margin: 0 0 30px;
+}
+.cb-headline b { color: var(--sunset); font-weight: 600; }
+
+/* ---------- numbered truths ---------- */
+
+.cb-truths { counter-reset: t; margin: 0; }
+.cb-truth {
+  display: grid; grid-template-columns: 34px 1fr; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid var(--line-soft);
+}
+.cb-truth:last-child { border-bottom: 0; }
+.cb-truth::before {
+  counter-increment: t; content: counter(t);
+  font-family: "Poppins", sans-serif; font-size: 17px; font-weight: 600;
+  color: var(--accent); line-height: 1.5;
+}
+.cb-truth h4 {
+  font-family: "Poppins", sans-serif; font-size: 15.5px; font-weight: 600;
+  margin: 0 0 6px; color: var(--ink); line-height: 1.35;
+}
+.cb-truth p { margin: 0 0 9px; font-size: 14.5px; color: var(--ink-2); }
+.cb-truth p:last-child { margin-bottom: 0; }
+.cb-truth q { font-style: italic; color: var(--ink); quotes: "\201C" "\201D"; }
+
+/* ---------- why pivot list ---------- */
+
+.cb-why { margin: 4px 0 0; padding-left: 0; list-style: none; }
+.cb-why li {
+  position: relative; padding-left: 20px; margin-bottom: 11px;
+  font-size: 14.5px; color: var(--ink-2);
+}
+.cb-why li:last-child { margin-bottom: 0; }
+.cb-why li::before {
+  content: ""; position: absolute; left: 0; top: 9px;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+}
+.cb-why li b { color: var(--ink); font-weight: 600; }
+
+/* ---------- method note ---------- */
+
+.cb-method {
+  border: 1px solid var(--line); border-left: 3px solid var(--lake);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface); padding: 20px 24px; margin: 26px 0 0;
+}
+.cb-method h4 {
+  font-family: "Poppins", sans-serif; font-size: 14px; font-weight: 600;
+  letter-spacing: .02em; margin: 0 0 9px; color: var(--ink);
+}
+.cb-method p { font-size: 14.5px; color: var(--ink-2); margin: 0 0 11px; }
+.cb-method p:last-child { margin-bottom: 0; }
+.cb-method q { font-style: italic; color: var(--ink); quotes: "\201C" "\201D"; }
+
+/* ---------- materials matrix, direction cells ---------- */
+
+td.mx-dir { font-family: "Poppins", sans-serif; font-size: 12.5px; font-weight: 600; }
+td.mx-fall { color: var(--lake); }
+td.mx-rise { color: var(--warn); }
+td.mx-flat { color: var(--ink-3); }
+
+/* ---------- lever re-ranking ---------- */
+
+td.lv-rank { font-family: "Poppins", sans-serif; font-size: 15px; font-weight: 600; color: var(--ink-3); }
+td.lv-move { font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600; }
+td.lv-up { color: var(--accent); }
+td.lv-down { color: var(--ink-3); }
+td.lv-same { color: var(--lake); }
+
+/* ---------- carbon tag pills in the year tables ---------- */
+
+.sc-tags { white-space: nowrap; }
+.sc-scope, .sc-kind {
+  display: inline-block; font-family: "Poppins", sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: .06em;
+  border-radius: 4px; padding: 2px 6px; vertical-align: middle;
+}
+.sc-scope { background: var(--chip-bg); color: var(--chip-ink); }
+.sc-scope.s1 { background: var(--badge-bg); color: var(--badge-ink); }
+.sc-kind { border: 1px solid var(--line); color: var(--ink-3); margin-left: 4px; text-transform: uppercase; }
+.sc-kind.measure { border-color: var(--lake); color: var(--ok); }
+.sc-kind.abate { border-color: var(--accent); color: var(--accent-ink); }
+.sc-kind.enable { border-color: var(--line); color: var(--ink-3); }
+
+/* ---------- tag legend ---------- */
+
+.sc-legend { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 30px; margin: 20px 0 0; }
+.sc-legend div { font-size: 13.5px; color: var(--ink-3); line-height: 1.5; }
+.sc-legend b {
+  font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink); margin-right: 5px;
+}
+
+/* ---------- year tag distribution strip ---------- */
+
+.sc-dist {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0;
+  font-family: "Poppins", sans-serif; font-size: 11.5px;
+}
+.sc-dist span {
+  background: var(--surface-2); color: var(--ink-2);
+  border-radius: 999px; padding: 4px 12px; font-weight: 500;
+}
+.sc-dist span b { color: var(--ink); font-weight: 600; }
+
+/* ---------- rail band override, two windows sit at the right ---------- */
+
+#rail .rail-band { left: 60%; width: 40%; }
+@media (max-width: 700px) {
+  #rail .rail-band { display: none; }
+}
+
+/* ---------- responsive for the additions ---------- */
+
+@media (max-width: 980px) {
+  .sc-legend { grid-template-columns: 1fr; }
+}
+
+
+/* ---------- added for module 08: water target card + emissions chart ---------- */
+.targets .wcard { grid-column: 1 / -1; margin-top: 2px; }
+.ocx-wrap { margin: 0; }
+.ocx-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.ocx-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ocx-inner { min-width: 620px; }
+.ocx-grid { stroke: var(--line-soft); stroke-width: 1; }
+.ocx-axis { stroke: var(--line); stroke-width: 1; }
+.ocx-atx { fill: var(--ink-3); font-family: "Poppins", sans-serif; font-size: 10.5px; }
+.ocx-yr  { fill: var(--ink-3); font-family: "Poppins", sans-serif; font-size: 10.5px; }
+.ocx-yr.mark { fill: var(--ink); font-weight: 600; }
+.ocx-bar { fill: var(--cabernet); }
+.ocx-bar.now { fill: var(--cherry); }
+.ocx-bar.base, .ocx-bar.peak { fill: var(--charcoal); }
+.ocx-bar.event { fill: var(--lake); }
+.ocx-band { fill: var(--surface-2); opacity: .55; }
+.ocx-proj { fill: none; stroke: var(--charcoal); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.ocx-targ { fill: none; stroke: var(--cherry); stroke-width: 2; stroke-linejoin: round; }
+.ocx-dot.proj { fill: var(--charcoal); }
+.ocx-dot.targ { fill: var(--cherry); }
+.ocx-gap2 { stroke: var(--sunset); stroke-width: 3; }
+.ocx-gaplab { fill: var(--warn); font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600; }
+.ocx-legend .ocx-swl { border-radius: 0; width: 18px; height: 3px; }
+.ocx-swl.targ { background: var(--cherry); }
+.ocx-swl.proj { background: var(--charcoal); }
+.ocx-ttx { fill: var(--accent-ink); font-family: "Poppins", sans-serif; font-size: 10px; font-weight: 600; }
+.ocx-val { fill: var(--ink-2); font-family: "Poppins", sans-serif; font-size: 9.5px; }
+.ocx-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 16px 0 0; }
+.ocx-legend div { font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 7px; }
+.ocx-sw { width: 11px; height: 11px; border-radius: 2px; flex: 0 0 auto; }
+[data-theme="dark"] .ocx-proj, [data-theme="dark"] .ocx-swl.proj { stroke: var(--ink-3); background: var(--ink-3); }
+[data-theme="dark"] .ocx-dot.proj { fill: var(--ink-3); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ocx-proj { stroke: var(--ink-3); } :root:not([data-theme="light"]) .ocx-dot.proj { fill: var(--ink-3); } :root:not([data-theme="light"]) .ocx-swl.proj { background: var(--ink-3); } }
+.ocx-note { font-size: 13.5px; color: var(--ink-3); line-height: 1.6; margin: 18px 0 0; max-width: 92ch; }
+
+/* ============================================================
+   ADDED FOR v5
+   1. Folded provenance panels, lifted verbatim from
+      OC_11_Carbon_Zero_BRIEF.html, which is the format of record
+      for a brief. Three panels, closed on load, forced open on
+      print by the handler at the end of the body.
+   2. The plan level chart system, lifted verbatim from
+      OC_Sustainability_Master_Plan.html, so the metered energy
+      series reads identically in both documents. It sits beside
+      the module's own .ocx-* chart rather than replacing it, and
+      no class name in it collides with anything already here.
+   ============================================================ */
+
+/* ---------- provenance fold, from Carbon Zero ---------- */
+.prov { margin: 20px 0 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.prov + .figs, .prov + .tw { margin-top: 26px; }
+.prov > summary {
+  list-style: none; cursor: pointer; padding: 12px 17px;
+  font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
+  display: flex; align-items: center; gap: 10px; border-radius: 10px;
+}
+.prov > summary::-webkit-details-marker { display: none; }
+.prov > summary::marker { content: ""; }
+.prov > summary::before {
+  content: ""; flex: 0 0 auto; width: 7px; height: 7px; margin-left: 2px;
+  border-right: 1.7px solid currentColor; border-bottom: 1.7px solid currentColor;
+  transform: rotate(-45deg); transition: transform .18s ease;
+}
+.prov[open] > summary::before { transform: rotate(45deg); }
+.prov > summary:hover { color: var(--accent); }
+.prov > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.prov-body { padding: 2px 17px 16px; }
+.prov-body > *:first-child { margin-top: 0; }
+.prov-body > *:last-child { margin-bottom: 0; }
+.prov-body .cb-method { margin-top: 0; }
+.foot .prov { background: transparent; }
+@media print {
+  .prov > summary::before { display: none; }
+  .prov > .prov-body { display: block !important; }
+}
+
+/* ---------- plan level chart system, from the master plan ---------- */
+.kpanel {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px 26px; background: var(--bg);
+}
+.kpanel h3 { margin: 0 0 4px; font-size: 19px; }
+.kpanel .ksub { font-size: 14px; color: var(--ink-3); margin: 0 0 20px; max-width: 86ch; }
+.kpanel .knote {
+  font-size: 13px; color: var(--ink-3); line-height: 1.55; margin: 18px 0 0;
+  padding-top: 14px; border-top: 1px solid var(--line-soft); max-width: 96ch;
+}
+.chartwrap { width: 100%; overflow-x: auto; }
+svg.chart { display: block; width: 100%; height: auto; font-family: "Poppins", sans-serif; }
+svg.chart .ax { stroke: var(--line); stroke-width: 1; }
+svg.chart .gr { stroke: var(--line-soft); stroke-width: 1; }
+svg.chart .tk { fill: var(--ink-3); font-size: 10.5px; }
+svg.chart .tkb { fill: var(--ink); font-size: 11px; font-weight: 600; }
+svg.chart .vlab { fill: var(--ink-2); font-size: 10.5px; font-weight: 600; }
+svg.chart .onbar { fill: #FFFFFF; font-size: 12px; font-weight: 600; }
+svg.chart .heroval { fill: var(--accent-ink); font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+svg.chart .herolab { fill: var(--ink); font-size: 11px; font-weight: 600; }
+svg.chart .mk { transition: opacity .12s; }
+svg.chart .mk:hover { opacity: .72; }
+svg.chart .clickable { cursor: pointer; }
+svg.chart .trg { stroke-dasharray: 5 4; fill: none; stroke-width: 2; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 14px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); }
+.legend i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+.legend i.ln { height: 0; border-top: 2px dashed currentColor; border-radius: 0; }
+.crumb { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 16px; font-size: 13px; }
+.crumb button {
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 13px; font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink-2); cursor: pointer;
+}
+.crumb button:hover { border-color: var(--accent); color: var(--accent-ink); }
+.crumb .here {
+  font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--accent); padding: 5px 2px;
+}
+.crumb .sep { color: var(--ink-3); }
+.hint { font-size: 12.5px; color: var(--ink-3); margin: 10px 0 0; }
+.ucards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ucard {
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  padding: 16px 17px; background: var(--surface); cursor: pointer; text-align: left;
+  font: inherit; color: inherit;
+}
+.ucard:hover { border-color: var(--accent); }
+.ucard .un { font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.ucard .uv { font-family: "Poppins", sans-serif; font-size: 25px; font-weight: 600; color: var(--ink); margin-top: 5px; letter-spacing: -.02em; }
+.ucard .uv small { font-size: .5em; font-weight: 500; color: var(--ink-3); margin-left: 4px; }
+.ucard .us { font-size: 12.5px; color: var(--ink-3); margin-top: 6px; }
+.ucard .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin: 0 0 14px; }
+.segb {
+  background: transparent; border: 0; border-right: 1px solid var(--line);
+  padding: 7px 15px; font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink-3); cursor: pointer;
+}
+.segb:last-child { border-right: 0; }
+.segb:hover { color: var(--accent-ink); background: var(--surface); }
+.segb.on { background: var(--accent); color: var(--on-accent); }
+.ucard.st { cursor: default; }
+
+/* ---------- indicator tiles, from the master plan ---------- */
+.kpirow {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 0 0 26px;
+}
+.kpitile {
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: var(--radius); padding: 15px 16px 13px; cursor: pointer;
+  text-align: left; font: inherit; color: inherit;
+  display: flex; flex-direction: column; gap: 2px;
+  transition: border-color .15s, background .15s;
+}
+.kpitile:hover { border-color: var(--accent); }
+.kpitile.on { border-color: var(--accent); border-top: 3px solid var(--accent); background: var(--bg); box-shadow: var(--shadow); }
+.kpitile .kn {
+  font-family: "Poppins", sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+}
+.kpitile .kv {
+  font-family: "Poppins", sans-serif; font-size: 27px; font-weight: 600;
+  line-height: 1.05; color: var(--accent-ink); letter-spacing: -.02em; margin-top: 4px;
+}
+.kpitile .kv small { font-size: .46em; font-weight: 500; margin-left: 3px; }
+.kpitile .kt { font-size: 12.5px; color: var(--ink-2); line-height: 1.4; margin-top: 4px; }
+.kpitile .ks { margin-top: 8px; }
+/* two indicators here rather than the plan's five */
+.kpirow { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 980px) { .kpirow { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .kpirow { grid-template-columns: 1fr; } }
+
+/* ---------- drill-down affordance, added for v5 ----------
+   The panel is four levels deep and nothing on the page said so. This is
+   presentation only: it changes no data, no hierarchy and no method. */
+.enguide {
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: var(--surface); padding: 13px 16px 14px; margin: 0 0 18px;
+}
+.enguide .egl {
+  font-family: "Poppins", sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+  display: block; margin-bottom: 9px;
+}
+.egsteps { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.egstep {
+  display: flex; align-items: center; gap: 8px; flex: 1 1 165px;
+  border: 1px solid var(--line-soft); border-radius: 8px;
+  padding: 8px 11px; background: var(--bg); min-width: 0;
+}
+.egstep .egn {
+  flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+  border: 1px solid var(--line); color: var(--ink-3);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600;
+}
+.egstep .egt {
+  font-family: "Poppins", sans-serif; font-size: 11.5px; font-weight: 600;
+  color: var(--ink-2); line-height: 1.25; overflow-wrap: anywhere;
+}
+.egstep.done { border-color: var(--line); }
+.egstep.done .egn { border-color: var(--accent); color: var(--accent-ink); }
+.egstep.on { border-color: var(--accent); border-left: 3px solid var(--accent); background: var(--rec-bg); }
+.egstep.on .egn { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.egstep.on .egt { color: var(--ink); }
+.egstep.ahead { opacity: .62; }
+.eghow {
+  font-size: 13px; color: var(--ink-2); margin: 11px 0 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.eghow .egc { color: var(--accent); font-weight: 700; flex: 0 0 auto; }
+@media (max-width: 760px) { .egstep { flex: 1 1 100%; } }
+
+/* a clickable mark should look clickable before it is hovered over */
+svg.chart .clickable { cursor: pointer; }
+svg.chart .clickable:hover { stroke: var(--accent); stroke-width: 2.5; }
+.ucard { position: relative; }
+.ucard::after {
+  content: ""; position: absolute; right: 14px; top: 17px;
+  width: 7px; height: 7px; border-right: 1.7px solid var(--ink-3);
+  border-bottom: 1.7px solid var(--ink-3); transform: rotate(-45deg);
+}
+.ucard:hover::after { border-color: var(--accent); }
+</style>
+<style>
+/* ---------- Communications additions, presentation only ---------- */
+.kpirow { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .kpirow { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 780px) { .kpirow { grid-template-columns: 1fr; } }
+.kpitile .kv { font-size: 25px; }
+.kmeta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 26px; margin: 0 0 22px; }
+.kmeta div:first-child { grid-column: 1 / -1; }
+.kmeta dt { font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.kmeta dd { margin: 3px 0 0; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+@media (max-width: 620px) { .kmeta { grid-template-columns: 1fr; } }
+.legend i { flex: 0 0 auto; }
+.fig .num.numtxt { font-size: clamp(24px, 2.6vw, 30px); }
+.cm-chain { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 0 0 30px; }
+.cm-step { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 14px 15px; display: flex; flex-direction: column; gap: 4px; }
+.cm-step:last-child { background: var(--hero-bg); border-color: var(--hero-bg); }
+.cm-n { font-family: "Poppins", sans-serif; font-size: 12px; font-weight: 600; color: var(--accent-ink); }
+.cm-t { font-family: "Poppins", sans-serif; font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.cm-d { font-size: 13px; color: var(--ink-3); line-height: 1.45; }
+.cm-step:last-child .cm-n, .cm-step:last-child .cm-t { color: var(--hero-ink); }
+.cm-step:last-child .cm-d { color: var(--hero-ink-2); }
+@media (max-width: 980px) { .cm-chain { grid-template-columns: repeat(2, 1fr); } .cm-step:last-child { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .cm-chain { grid-template-columns: 1fr; } }
+#cbTruthsMore { counter-reset: t 3; }
+.sc-kind.deliver { border-color: var(--accent); color: var(--accent-ink); }
+.aside .prov { background: var(--bg); }
+.aside .tw table { font-size: 13px; }
+@media (max-width: 640px) {
+  table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+  table.stack colgroup, table.stack thead { display: none; }
+  table.stack tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  table.stack td { border: 0; padding: 3px 0; text-align: left; white-space: normal; }
+  table.stack td.tier-lbl { padding-top: 10px; }
+  table.stack td.tier-c { padding: 8px 10px; }
+  table.stack td[data-label]::before {
+    content: attr(data-label); display: block; font-family: "Poppins", sans-serif; font-size: 10.5px;
+    font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 2px;
+  }
+  table.stack caption { display: block; text-align: left; }
+}
+/* the band sits over the real cluster: the submission, the survey and the status expiry, nodes 1 to 4 */
+#rail .rail-band { left: 0; width: 80%; }
+.krole { font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); margin-left: 8px; vertical-align: 2px; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-top">
+      <img class="logo logo-light" src="data:image/png;base64,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" alt="Okanagan College">
+      <img class="logo logo-dark" src="data:image/png;base64,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" alt="Okanagan College">
+      <button class="btn" id="themeBtn" type="button">Theme</button>
+    </div>
+    <span class="badge">Version 1 &middot; for review</span>
+    <div class="mast-grid">
+      <div>
+        <h1><span class="l1">Communications</span><span class="l2">Six year brief</span></h1>
+        <p class="mast-sub">Okanagan College Sustainability Plan &middot; <em>Engagement</em> &middot; fiscal years (FY) 2026/27 to 2031/32</p>
+      </div>
+      <dl class="mast-meta">
+        <div><dt>Framework</dt><dd>Sustainability Plan Framework, Roadmap</dd></div>
+        <div><dt>Impact area</dt><dd>Communications &middot; 6 of 13</dd></div>
+        <div><dt>Scope</dt><dd>Public reporting, outreach and engagement &middot; four campuses</dd></div>
+        <div><dt>STARS ladder</dt><dd>Silver at Nov 2028 &middot; Gold at Nov 2032</dd></div>
+        <div><dt>Prepared</dt><dd>22 October 2026</dd></div>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<section id="kpi">
+  <div class="wrap">
+    <h2>What this impact area is measured by</h2>
+    <p class="sub">The plan indicator for Communications is the percentage of students and employees its outreach reaches, scored by the Association for the Advancement of Sustainability in Higher Education (AASHE) through its Sustainability Tracking, Assessment &amp; Rating System (STARS); credit codes such as EN 1 refer to its Engagement credits. It is the indicator the master plan carries. Two supporting indicators sit beside it: the STARS outreach criteria, and the College's own measure of consistent reporting. Select one to open it. Where an indicator is not yet measured, the panel shows when it will be, never a placeholder number.</p>
+    <div class="kpirow" id="kpiTiles"></div>
+    <div id="kpiPanel"></div>
+  </div>
+</section>
+
+<section id="figures">
+  <div class="wrap">
+    <h2>Where this stands today</h2>
+    <p class="thesis">Okanagan College is already building a community around sustainability. A monthly newsletter, shared through the College's Microsoft Teams channels, brings local news and events, sustainability updates and a monthly pledge, orientation days carry a sustainability campaign, and the College has reported its carbon emissions to the Province every year since 2008. The next step is to measure how far that work reaches and to add a yearly public account of the plan as a whole.</p>
+    <details class="prov">
+      <summary>Where these numbers come from</summary>
+      <div class="prov-body"><p class="sub">The College's Current State record for Communications, last updated 22 October 2026, its public sustainability pages and newsletter archive read in October 2026, and its public STARS reports on the AASHE site. Nothing here is estimated. The newsletter count is the run shown on the public archive; the Current State record dates the start of the run two months earlier, and that difference is carried as an open question.</p></div>
+    </details>
+    <div class="figs" id="figs"></div>
+  </div>
+</section>
+
+<section id="rail">
+  <div class="wrap">
+    <h2>The next five months, on one line</h2>
+    <p class="sub">The first STARS submission of the plan, the first reach measurement and the end of the College's current Reporter status all fall inside one winter. Most of Year 1 is set by these dates.</p>
+    <div id="railWrap"></div>
+  </div>
+</section>
+
+<section id="locator">
+  <div class="wrap">
+    <p class="loc-kicker">Where this sits in the plan</p>
+    <div class="locator" id="locatorGrid"></div>
+  </div>
+</section>
+
+<section id="situation">
+  <div class="wrap">
+    <h2>The situation</h2>
+    <div class="cols">
+      <div id="situation-text"></div>
+      <div class="aside">
+        <h3>Where the peers stand</h3>
+        <div id="peer-text"></div>
+      </div>
+    </div>
+    <details class="prov">
+      <summary>What the peers have published</summary>
+      <div class="prov-body" id="peerDetail"></div>
+    </details>
+  </div>
+</section>
+
+<section id="case">
+  <div class="wrap">
+    <h2>The Communications case</h2>
+    <p class="cb-headline" id="cbHeadline"></p>
+    <h3>From content to credibility</h3>
+    <div class="cm-chain" id="cmChain"></div>
+    <h3>Three things that are true</h3>
+    <div class="cb-truths" id="cbTruths"></div>
+    <details class="prov">
+      <summary>The rest of the picture</summary>
+      <div class="prov-body"><div class="cb-truths" id="cbTruthsMore"></div></div>
+    </details>
+    <h3>The levers, ranked</h3>
+    <p>Ranked first on what each lever does for the outcome and second on what STARS scores. The first lever matters most because students are the larger audience and receive the least today.</p>
+    <div class="tw" id="lvTable"></div>
+    <details class="prov">
+      <summary>How this was worked out</summary>
+      <div class="prov-body"><p class="sub" id="cbMethod"></p></div>
+    </details>
+  </div>
+</section>
+
+<section id="stars">
+  <div class="wrap">
+    <h2>The STARS position, verified against the 3.0.1 manual</h2>
+    <p class="sub">Twenty eight points sit in this impact area: outreach and communications (5), co-curricular activities (9), community partnerships (9), shared facilities (2) and collaboration with other institutions (3). Every Engagement credit applies to every institution, so there is no route to remove any of them from the denominator. Three related credits are counted in other impact areas, one of them a bonus credit this area supplies the evidence for.</p>
+    <div class="tw" id="starsTable"></div>
+    <details class="prov">
+      <summary>Credit by credit</summary>
+      <div class="prov-body"><p class="sub" id="starsNotes"></p></div>
+    </details>
+  </div>
+</section>
+
+<section id="target">
+  <div class="wrap">
+    <h2>The target, stated three times</h2>
+    <p class="sub">An outcome in this area's own unit and a lever in a unit AASHE scores, as every module in this plan carries, then a third card for the public engagement credits, which carry more points than the outreach credit. The third card is a deliberate deviation from the two card pattern.</p>
+    <div class="targets" id="targets"></div>
+  </div>
+</section>
+
+<section id="tiers">
+  <div class="wrap">
+    <h2>Three options, differing in how far the College reports beyond what is required</h2>
+    <div class="tierframe" id="tierFrame"></div>
+    <div class="tw" id="tierTable"></div>
+    <details class="prov">
+      <summary>The detail behind each option</summary>
+      <div class="prov-body"><p class="sub">Three other axes were tested and set aside. Dependence on outside money does not separate options here, because the spending is almost entirely staff time. Dependence on other parties is real, since college communications holds the main channels, but it applies equally to all three options. Campus coverage separates options only through staffing, which belongs to the Organizational Structure and Funding impact area, so it sits inside the recommended option as a requirement instead of defining the options.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <h2>Six years, activity by activity</h2>
+    <p class="sub" id="roadmapSub"></p>
+    <div class="ytabs" id="ytabs"></div>
+    <div id="ypanels"></div>
+  </div>
+</section>
+
+<section id="asks">
+  <div class="wrap">
+    <h2>The decisions we need</h2>
+    <p class="sub">Five decisions. The first has to come in Year 1 for the first annual report to appear in FY2027/28. None of them commits capital.</p>
+    <div class="asks" id="asksList"></div>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <h2>Open questions, with leads</h2>
+    <p class="sub" id="openSub"></p>
+    <div class="tw" id="openTable"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <details class="prov">
+      <summary>Full source list and method note</summary>
+      <div class="prov-body"><p id="footNote"></p></div>
+    </details>
+  </div>
+</footer>
+
+<script>
+/* DATA CONTRACT. OC_PLAN.framework is shared by all thirteen briefs. modules carries this one area.
+   Not a carbon area: no carbon block; tags are [scope, kind] with scope blank and kind Measure, Enable or Deliver.
+   Source of truth: build/data.py. Framework file: 20260825 R1 Sust Plan Framework.xlsx, Roadmap tab, column K. */
+var OC_PLAN = {"framework": {"plan": "Okanagan College Sustainability Plan", "frameworkFile": "20260825 R1 Sust Plan Framework.xlsx", "horizon": "FY2026/27 to FY2031/32", "starsLadder": "Silver at the November 2028 submission, Gold at November 2032", "focusAreas": [{"name": "Planning and Administration", "impactAreas": ["Policy / Planning", "Organizational Structure & Funding", "Equity & Well Being"]}, {"name": "Engagement", "impactAreas": ["Training", "Performance Measurement", "Communications"]}, {"name": "Operations", "impactAreas": ["UNSDG's", "Infrastructure (Energy/Water)", "Supply Chain", "Transportation", "Carbon Zero"]}, {"name": "Academics", "impactAreas": ["Curriculum", "Applied Research"]}], "years": [{"id": "Y1", "fy": "FY2026/27", "span": "Apr 1 2026 to Mar 31 2027", "period": "Operational period 1", "milestone": "November 2026, submit the STARS report for the 2025/26 performance period", "submits": true}, {"id": "Y2", "fy": "FY2027/28", "span": "Apr 1 2027 to Mar 31 2028", "period": "Operational period 1", "milestone": "2027/28 STARS performance period, a data collection year", "submits": false}, {"id": "Y3", "fy": "FY2028/29", "span": "Apr 1 2028 to Mar 31 2029", "period": "Operational period 2", "milestone": "November 2028, submit the STARS report for 2027/28. Silver target", "submits": true}, {"id": "Y4", "fy": "FY2029/30", "span": "Apr 1 2029 to Mar 31 2030", "period": "Operational period 2", "milestone": "2029/30 STARS performance period, a data collection year", "submits": false}, {"id": "Y5", "fy": "FY2030/31", "span": "Apr 1 2030 to Mar 31 2031", "period": "Operational period 3", "milestone": "November 2030, submit the STARS report for the 2029/30 performance period", "submits": true}, {"id": "Y6", "fy": "FY2031/32", "span": "Apr 1 2031 to Mar 31 2032", "period": "Operational period 3", "milestone": "2031/32 performance period, feeding the November 2032 submission. Gold target", "submits": false}]}, "tierFrame": "The three options differ in how far Okanagan College commits to public reporting beyond what STARS and the Province require. Every option keeps the statutory carbon report and the STARS submission. What changes is how often the College reports on the plan, how much it shows, including where it is behind, and how many students and employees it reaches.", "tierOptions": [{"pct": "3.5 of 5", "name": "Required", "sub": "Claim what the manual asks for and keep the record current", "adds": "The public STARS page brought up to date, every sustainability page reviewed, a sustainability step added to employee onboarding, and reach measured once per STARS cycle by survey. Partnerships, shared facilities and collaboration are inventoried for each submission.", "requires": ["Rewrite the public STARS page and date every page review", "Add the onboarding step with people and culture", "Run a representative reach survey before each submission"], "capital": "None expected. Page changes sit inside the College's existing web platform", "operating": "Staff time inside the two current sustainability positions. Survey tool not yet costed", "revenue": "Nothing in cash. STARS points only", "external": "College communications for page changes, people and culture for onboarding, institutional records for the survey sample", "outcome": "The record is correct at each submission. Between submissions there is no yearly public report on the plan", "earns": "Outreach and communications at 3.5 of 5: all six criteria, with reach at 20 to 39 per cent. Public engagement credits claimed where the inventories support them", "risk": "Reporting stays an event every two years, and pages written for one submission age until the next. That is the pattern the outcome exists to end"}, {"pct": "4 of 5", "name": "Recommended", "sub": "Report every year, including where the College is behind", "adds": "Everything above, plus an annual public progress report on a fixed date from FY2027/28 covering every plan indicator, reach measured every year, sustainability content in a student channel each term, a liaison on each regional campus, and the partnership inventory published with its sustainability tagging.", "requires": ["Agree the report's scope, date and approval route in Year 1", "Place regular content in a channel students already read", "Name liaisons at Penticton, Vernon and Salmon Arm", "Publish the partnership inventory and adopt partnership guidelines"], "capital": "None expected", "operating": "Staff time beyond current capacity, not yet costed. Liaison time on regional campuses, not yet costed. Survey tool, not yet costed", "revenue": "Nothing in cash. The public engagement credits documented to a standard that holds at review, and the partnership inventory that the UNSDGs bonus credit relies on", "external": "Executive leadership to approve a report that shows gaps. College communications for student channels. Liaison time on the three regional campuses. Partner organizations for joint assessment", "outcome": "Five consecutive annual reports by FY2031/32, each covering every indicator, and no public page more than twelve months from its last review", "earns": "Outreach and communications at 4 of 5, with reach at 40 to 59 per cent by November 2032. At least 16 of 23 points across the four public and co-curricular engagement credits this area claims", "risk": "A report that shows indicators behind target needs executive agreement before the first one is published. Without that agreement in Year 1, the first report slips a year"}, {"pct": "4.5 of 5", "name": "Ambitious", "sub": "Report live, quarterly, and beyond campus", "adds": "Everything above, plus a public dashboard of every plan indicator updated each quarter, short quarterly updates, yearly reporting to the four host cities, and reach of 60 to 79 per cent of students and employees.", "requires": ["Quarterly data from every impact area", "A dashboard that carries the whole plan, not utilities alone", "Sustainability content in channels that reach most students every term"], "capital": "Not yet costed. The utility dashboard live from December 2026 already carries solar, energy, carbon and water; extending it to every plan indicator is not yet costed", "operating": "The highest of the three, and not yet costed. Most of the cost sits in other impact areas producing quarterly data", "revenue": "Nothing in cash. Half a point more on reach than the recommended option", "external": "Every impact area producing quarterly figures. Information technology for analytics and hosting. Four municipal audiences", "outcome": "The plan is visible in close to real time, to campus and to the host communities", "earns": "Outreach and communications at 4.5 of 5. Public engagement as in the recommended option", "risk": "Several impact areas do not yet measure their indicators. Publishing their figures quarterly would mean restating them later, which costs the credibility the outcome is about"}], "drafted": ["Transportation", "Organizational Structure & Funding", "Supply Chain", "Infrastructure (Energy/Water)", "Carbon Zero"], "modules": [{"impactArea": "Communications", "focusArea": "Engagement", "status": "Drafted, activity level", "desiredOutcome": "Credible, consistent public sustainability communications and reporting", "frameworkBaseline": "Sustainability Website was updated in Mar 2025", "goal": "Students, employees and the four host communities can see what Okanagan College is doing on sustainability, including where it is behind, in the same place on the same date every year.", "figures": [{"n": "4", "unit": " of 6", "label": "Outreach criteria met today", "sub": "A central website, dashboards, a sustainability newsletter and outreach campaigns. Student orientation goes into the November 2026 submission as it runs today; employee orientation does not yet include sustainability.", "hero": true}, {"n": "Not measured", "unit": "", "label": "Share of students and employees reached", "sub": "Worth 2 of the 5 outreach points. The first measurement is planned for the Winter 2027 term.", "hero": true}, {"n": "12", "unit": " issues", "label": "Monthly newsletters on the public archive", "sub": "November 2025 to October 2026, without a break. Each issue carries local news and events, sustainability updates and a monthly pledge, and is shared through the College's Microsoft Teams channels."}, {"n": "18", "unit": " years", "label": "Of public carbon reporting to the Province", "sub": "A statutory report filed every year from 2008 to 2025. It is the only recurring public sustainability report the College publishes today."}, {"n": "2011", "unit": "", "label": "Latest date on the public STARS page", "sub": "Its content is written in the present tense. The main sustainability page states the College's current STARS standing correctly."}, {"n": "1", "unit": " of 4", "label": "Campuses with in-person orientation outreach", "sub": "Since January 2026 the two-person sustainability team has run a booth and a short campaign at each orientation day at the Kelowna campus, two so far, with gift cards for the College bookstore and cafeteria as prizes. Penticton, Vernon and Salmon Arm have no sustainability presence at orientation yet."}], "rail": {"bandLabel": "A submission, a survey and a status expiry inside four months", "nodes": [{"d": "November 2026", "w": "STARS report submitted for the 2025/26 performance period, with five of the six outreach criteria claimed.", "hot": true}, {"d": "December 2026", "w": "The full utility dashboard goes live: solar, energy, carbon and water, interactive, with finer detail and building-level data where available."}, {"d": "January to April 2027", "w": "Winter term reach survey, the College's first measured reach figure.", "hot": true}, {"d": "19 February 2027", "w": "The College's current Reporter status reaches the end of its validity."}, {"d": "31 March 2027", "w": "Year 1 closes, with the first annual report's scope, date and approval route agreed."}]}, "situation": ["Okanagan College already communicates on sustainability every month. The newsletter, unbroken since late 2025 and shared through the College's Microsoft Teams channels, carries local news and events, sustainability updates and a monthly pledge, so a community that supports sustainability is already forming inside the College. Campaigns in the last year covered water restrictions on all four campuses, a waste audit run with business students and a commute matching app. The College has reported its carbon emissions to the Province every year since 2008, and held STARS Silver in 2011 and 2014.", "The gaps are in reach. The College does not yet know what share of its students and employees its outreach reaches, and that measurement carries 2 of the 5 outreach points. Employees see sustainability content every second week in the all-staff newsletter. Students receive none regularly, orientation outreach runs at Kelowna only, and new employees meet no sustainability content when they start.", "Consistency is the other half of the outcome. The public STARS page still carries content from around 2011, written in the present tense, while the main sustainability page states the current position correctly. Beyond the statutory carbon filing, there is no yearly public report on the plan as a whole.", "The public engagement credits are worth more than the outreach credit. Partnerships, shared facilities and collaboration with other institutions all exist in some form, but none has been inventoried yet."], "peerLine": ["<p>Two BC institutions hold current STARS 3.0 ratings, both Gold: the University of Northern British Columbia (UNBC) at 68.83 and the University of the Fraser Valley (UFV) at 69.12. On outreach they score 3.5 and 3.25 of 5 (their figures), and UFV's score works only with the lowest reach band. Reach is where even Gold peers fall short.</p>", "<p>Both earn full marks on partnerships and on collaboration with other institutions. On yearly public reporting, Kwantlen Polytechnic University (KPU) and Simon Fraser University (SFU) both publish reports that name their gaps. Among the colleges in the peer set, published reporting is mostly the statutory carbon filing, which leaves room for Okanagan College to lead.</p>"], "case": {"headline": "Communications earns credibility in two ways: by reaching the people it is meant for, and by reporting the same indicators every year, including the ones that are behind.", "chain": [["Content", "The newsletter, the website, campaigns, orientation outreach"], ["Channels", "Routes that reach students and employees on all four campuses"], ["Reach", "A measured share of students and employees, scored by AASHE"], ["A yearly record", "One report on every plan indicator, on a fixed date"], ["Credibility", "Public communications that are consistent and can be checked"]], "truths": [["Reach is unmeasured, and it carries two of the five outreach points.", "The STARS reach indicator scores the share of students and employees reached each year, in bands from 1 to 19 per cent (0.25 points) up to 80 to 100 per cent (2 points). Without a measurement the College claims none of it."], ["Students are the larger audience and receive the least.", "Employees receive sustainability content every second week through the all-staff newsletter. Students have no regular sustainability content in any channel, so a combined reach figure is held down by the share of the population that employees make up."], ["The collaboration credit is about other institutions.", "STARS EN 9 scores network membership, presentations, articulation agreements, mentoring, leadership roles and peer review with other institutions. Four-campus framing of the College's own newsletter does not count toward it, so the evidence has to be gathered afresh."], ["The dashboards criterion is already met.", "It asks only whether dashboards or signage highlight sustainability performance. The live solar dashboard satisfies it today, and in December 2026 the full utility dashboard adds energy, carbon and water, interactive and down to building level where data allows."], ["The record is better than the public STARS page shows.", "The College held STARS Silver in 2011 and at 55.85 in 2014, filed a Reporter submission in December 2023, and has reported its carbon emissions publicly every year since 2008."], ["The carbon link is real and narrow.", "The yearly statutory carbon report is one of the things this area publishes. Its content, method and boundary belong to the Carbon Zero impact area, which this brief cites rather than repeats. No activity here moves emissions."], ["Capacity sets the pace on the regional campuses.", "Two sustainability positions serve four campuses. The staffing question belongs to the Organizational Structure and Funding impact area; this brief names what reach on each campus needs."]], "levers": [["Sustainability content in a student channel every term", "Moves reach more than any other lever, because students are the larger audience", "EN 1.2, up to 2 points", "Staff time", "1"], ["An annual public progress report on a fixed date", "Delivers the consistency half of the outcome directly", "No credit of its own; supports every credit's narrative", "Staff time, not yet costed", "2"], ["A published, tagged partnership inventory", "Turns existing relationships into documented evidence", "EN 6, up to 9 points, and the inventory behind the UNSDGs bonus credit", "Staff time", "3"], ["A sustainability step in employee onboarding", "Reaches every new employee once", "EN 1.1 criterion C, 0.5 points", "Minimal", "4"], ["A liaison on each regional campus", "Carries orientation outreach and campaigns beyond Kelowna", "Supports EN 1.1 B and EN 1.2", "Not yet costed", "5"], ["A twelve-month review rule for public pages", "Keeps the public record current between submissions", "None directly", "Staff time", "6"], ["A whole-plan live dashboard", "Makes the plan visible continuously", "None beyond the criterion already met", "Not yet costed", "7"]], "method": "The chain and the lever order were built from the Current State document of 22 October 2026, the College's public sustainability pages read in October 2026, and the STARS 3.0.1 Technical Manual. Lever order ranks effect on the area's own outcome first and STARS effect second. Peer figures are theirs, read from the AASHE scorecards of UNBC and UFV and from the published reports of KPU and SFU."}, "stars": [{"credit": "EN 1.1", "title": "Sustainability outreach and communications", "pts": "3", "needs": "Six criteria at 0.5 each: a central website, sustainability in student orientation, sustainability in employee orientation, dashboards or signage, a sustainability communications medium, and an outreach campaign in the last three years.", "stands": "Four met: website, dashboards, the monthly newsletter and campaigns. Student orientation submitted as it runs today and tested against the criteria. Employee orientation not yet included.", "state": "part"}, {"credit": "EN 1.2", "title": "Share of students and employees reached", "pts": "2", "needs": "Evidence of the share reached each year, by survey, communications analytics or a conservative estimate. Bands from 1 to 19 per cent (0.25) to 80 to 100 per cent (2).", "stands": "Not measured. First measurement planned for the Winter 2027 term.", "state": "block"}, {"credit": "EN 2", "title": "Co-curricular activities", "pts": "9", "needs": "A student sustainability organization (2), sustainability-focused co-curricular activities (2), and the share of students taking part (5).", "stands": "Not yet assessed. Claimed by this area by decision on 22 October 2026; the reach survey can carry the participation question.", "state": "open"}, {"credit": "EN 6", "title": "Community partnerships", "pts": "9", "needs": "At least one sustainability-focused partnership (3), one supporting underrepresented groups or vulnerable populations (3), and published guidelines plus joint assessment with partners (3).", "stands": "Several candidate partnerships with water, energy, food recovery and community service organizations. Not yet inventoried or assessed against the definition.", "state": "part"}, {"credit": "EN 8", "title": "Shared facilities", "pts": "2", "needs": "Public access, and free or low cost access, to four facility types: meeting space, basic needs, cultural and recreational. 0.25 for each.", "stands": "Child care on three campuses and gymnasiums at Kelowna and Penticton are candidates. Meeting and cultural spaces not yet inventoried.", "state": "part"}, {"credit": "EN 9", "title": "Collaboration with other institutions", "pts": "3", "needs": "Five of six criteria at 0.6 each: networks, formal sharing such as presentations, a sustainability articulation agreement, mentoring, a network leadership role, and peer review of another institution's report.", "stands": "Not yet inventoried. Membership of a provincial post-secondary electric vehicle charging alliance is one candidate.", "state": "open"}, {"credit": "IL 17", "title": "Community partnerships inventory", "pts": "1 bonus", "needs": "An inventory within the last three years identifying the sustainability challenge or Sustainable Development Goal each partnership addresses.", "stands": "Counted in the UNSDGs impact area, whose plan indicator counts inventories mapped to the Sustainable Development Goals. This area supplies the partnership inventory it counts.", "state": "other"}, {"credit": "EN 5", "title": "Civic engagement", "pts": "8", "needs": "Student participation in civic engagement (4), employee volunteering (1), and support for public policy (3).", "stands": "Left for the Equity and Well Being impact area to decide, so no point is counted twice.", "state": "other"}, {"credit": "EN 7", "title": "Continuing education", "pts": "3", "needs": "At least one sustainability-focused continuing education offering.", "stands": "Counted in the Curriculum impact area.", "state": "other"}], "target": {"outcome": {"tag": "Outcome target, in this area's own unit", "stmt": "From FY2027/28, Okanagan College publishes an annual public sustainability progress report on a fixed date, five in a row by FY2031/32, each reporting every plan indicator including those behind target. No public sustainability page goes more than twelve months without review.", "base": "<b>Baseline.</b> No annual progress report exists. The statutory carbon report, filed every year since 2008, is the only recurring public sustainability report. The public STARS page carries content from around 2011.", "why": "The desired outcome names consistent public reporting, and this measures it directly. It is self-assessed, which is why it is paired with a target AASHE scores."}, "lever": {"tag": "Lever target, in a STARS-scored unit", "stmt": "Outreach and communications (EN 1) at 4 of 5 points by the November 2032 submission: all six outreach criteria by November 2028, and reach evidenced at 40 to 59 per cent of students and employees by November 2032.", "base": "<b>Baseline.</b> 2 of 5 secure today from four criteria. 2.5 if student orientation holds. Reach not measured.", "why": "AASHE scores it, so the number is not the College's own judgement. The two Gold peers score 3.25 and 3.5 (their figures), so 4 of 5 is ahead of both without assuming reach that no peer has shown."}, "third": {"tag": "Third target, recorded as a deliberate deviation", "stmt": "At least 16 of 23 points across co-curricular activities, community partnerships, shared facilities and collaboration with other institutions (EN 2, 6, 8 and 9) by the November 2032 submission, with each claimed point documented.", "base": "<b>Baseline.</b> Not known. The College's last STARS report, in December 2023, was unscored, and its credits do not map onto the 3.0.1 manual.", "why": "These four credits carry 23 points, more than four times the outreach credit, and the outcome and lever targets would otherwise leave them out. UFV and UNBC hold 18 and 22 of the same 23 (their figures)."}}, "years": {"Y1": {"theme": "Correct the record and start measuring reach", "outcome": "Every public sustainability page carries current content, the November 2026 submission claims five of the six outreach criteria, and the College holds its first measured reach figure from the Winter 2027 survey.", "activities": [["CM1.1", "Replace the 2011 content on the public STARS page with the current position", "the Sustainability Office", "Immediate", "Deliver"], ["CM1.2", "Review every public sustainability page and record the review date", "the Sustainability Office", "Immediate", "Deliver"], ["CM1.3", "Submit five outreach criteria in the November 2026 STARS report", "the Sustainability Office", "Immediate", "Measure"], ["CM1.4", "Add a sustainability step to the employee onboarding checklist", "people and culture", "Short", "Deliver"], ["CM1.5", "Run a representative Winter 2027 reach survey of students and employees", "the Sustainability Office", "Short", "Measure"], ["CM1.6", "Record newsletter subscribers and all-staff distribution as reach data", "college communications", "Short", "Measure"], ["CM1.7", "Inventory community partnerships and tag each by sustainability challenge", "the Sustainability Office", "Short", "Measure"], ["CM1.8", "Inventory publicly shared facilities and their access terms on four campuses", "building operations", "Short", "Measure"], ["CM1.9", "Inventory networks, presentations and peer review roles with other institutions", "the Sustainability Office", "Short", "Measure"], ["CM1.10", "Settle one name for the commute app across every public channel", "college communications", "Immediate", "Enable"], ["CM1.11", "Agree the annual progress report's scope, date and approval route", "executive leadership", "Short", "Enable"]]}, "Y2": {"theme": "Publish the first annual report and reach students", "outcome": "The College has published its first annual progress report, including where it is behind, and sustainability content reaches students each term through a channel they already read.", "activities": [["CM2.1", "Publish the first annual public progress report covering every plan indicator", "the Sustainability Office", "Medium", "Deliver"], ["CM2.2", "Place sustainability content in a student channel every term", "college communications", "Short", "Deliver"], ["CM2.3", "Name a sustainability liaison at Penticton, Vernon and Salmon Arm", "Not yet named", "Short", "Enable"], ["CM2.4", "Extend orientation outreach to all four campuses each term", "the Sustainability Office", "Medium", "Deliver"], ["CM2.5", "Publish the partnership inventory with its sustainability tagging", "the Sustainability Office", "Short", "Deliver"], ["CM2.6", "Adopt published guidelines for reciprocal community partnerships", "the Sustainability Office", "Medium", "Enable"], ["CM2.7", "Confirm a student sustainability organization and co-curricular offerings", "the Sustainability Office", "Short", "Measure"], ["CM2.8", "Repeat the reach survey and start the annual reach series", "the Sustainability Office", "Short", "Measure"], ["CM2.9", "Present the College's sustainability work at an external conference", "the Sustainability Office", "Medium", "Deliver"]]}, "Y3": {"theme": "Claim the communications credits in full", "outcome": "All six outreach criteria are met and evidenced, reach is reported from two years of data, and the partnership, facilities and collaboration credits go in with documented evidence for the Silver submission.", "activities": [["CM3.1", "Submit all six outreach criteria and the measured reach band in November 2028", "the Sustainability Office", "Medium", "Measure"], ["CM3.2", "Submit partnership, shared facilities and collaboration evidence in November 2028", "the Sustainability Office", "Medium", "Measure"], ["CM3.3", "Supply the tagged partnership inventory for the UNSDGs bonus credit", "the Sustainability Office", "Medium", "Enable"], ["CM3.4", "Publish the second annual progress report on the same date as the first", "the Sustainability Office", "Medium", "Deliver"], ["CM3.5", "Run the first joint assessment with community partners", "the Sustainability Office", "Medium", "Deliver"], ["CM3.6", "Report the Silver submission result publicly, whatever the result", "the Sustainability Office", "Medium", "Deliver"]]}, "Y4": {"theme": "Widen the audience beyond campus", "outcome": "The annual report reaches the four host communities as well as campus, and every partnership in the inventory has completed a joint assessment.", "activities": [["CM4.1", "Publish the third annual report and share it with the four host cities", "the Sustainability Office", "Long", "Deliver"], ["CM4.2", "Complete joint assessments for every sustainability partnership", "the Sustainability Office", "Long", "Deliver"], ["CM4.3", "Extend the utility dashboard to the plan's other measured indicators", "information technology", "Long", "Deliver"], ["CM4.4", "Take a leadership or peer review role in a sustainability network", "the Sustainability Office", "Long", "Deliver"], ["CM4.5", "Compare reach by channel and retire channels that do not reach", "college communications", "Medium", "Measure"]]}, "Y5": {"theme": "Hold the record steady through a second submission", "outcome": "Reach is evidenced at 40 to 59 per cent for the November 2030 submission and the fourth annual report goes out on its fixed date.", "activities": [["CM5.1", "Submit reach evidence at the 40 to 59 per cent band in November 2030", "the Sustainability Office", "Long", "Measure"], ["CM5.2", "Publish the fourth annual progress report on its fixed date", "the Sustainability Office", "Long", "Deliver"], ["CM5.3", "Refresh the partnership inventory inside its three-year validity", "the Sustainability Office", "Long", "Measure"], ["CM5.4", "Check every public page against the twelve-month review rule", "the Sustainability Office", "Long", "Measure"]]}, "Y6": {"theme": "Report a full six-year record for Gold", "outcome": "Five consecutive annual reports are public, reach holds at 40 to 59 per cent or better, and the 2031/32 performance year is documented to Gold standard for November 2032.", "activities": [["CM6.1", "Publish the fifth annual progress report with six-year trends", "the Sustainability Office", "Long", "Deliver"], ["CM6.2", "Document every claimed communications credit to the November 2032 standard", "the Sustainability Office", "Long", "Measure"], ["CM6.3", "Measure reach for the 2031/32 performance year", "the Sustainability Office", "Long", "Measure"], ["CM6.4", "Set the next horizon's communications targets from six years of data", "the Sustainability Office", "Long", "Enable"]]}}, "trace": {"outcome": ["CM1.1", "CM1.2", "CM1.10", "CM1.11", "CM2.1", "CM3.4", "CM3.6", "CM4.1", "CM5.2", "CM5.4", "CM6.1", "CM6.4"], "lever": ["CM1.3", "CM1.4", "CM1.5", "CM1.6", "CM2.2", "CM2.3", "CM2.4", "CM2.8", "CM3.1", "CM4.3", "CM4.5", "CM5.1", "CM6.2", "CM6.3"], "third": ["CM1.7", "CM1.8", "CM1.9", "CM2.5", "CM2.6", "CM2.7", "CM2.9", "CM3.2", "CM3.3", "CM3.5", "CM4.2", "CM4.4", "CM5.3", "CM6.2"]}, "tags": {"CM1.1": ["", "Deliver"], "CM1.2": ["", "Deliver"], "CM1.3": ["", "Measure"], "CM1.4": ["", "Deliver"], "CM1.5": ["", "Measure"], "CM1.6": ["", "Measure"], "CM1.7": ["", "Measure"], "CM1.8": ["", "Measure"], "CM1.9": ["", "Measure"], "CM1.10": ["", "Enable"], "CM1.11": ["", "Enable"], "CM2.1": ["", "Deliver"], "CM2.2": ["", "Deliver"], "CM2.3": ["", "Enable"], "CM2.4": ["", "Deliver"], "CM2.5": ["", "Deliver"], "CM2.6": ["", "Enable"], "CM2.7": ["", "Measure"], "CM2.8": ["", "Measure"], "CM2.9": ["", "Deliver"], "CM3.1": ["", "Measure"], "CM3.2": ["", "Measure"], "CM3.3": ["", "Enable"], "CM3.4": ["", "Deliver"], "CM3.5": ["", "Deliver"], "CM3.6": ["", "Deliver"], "CM4.1": ["", "Deliver"], "CM4.2": ["", "Deliver"], "CM4.3": ["", "Deliver"], "CM4.4": ["", "Deliver"], "CM4.5": ["", "Measure"], "CM5.1": ["", "Measure"], "CM5.2": ["", "Deliver"], "CM5.3": ["", "Measure"], "CM5.4": ["", "Measure"], "CM6.1": ["", "Deliver"], "CM6.2": ["", "Measure"], "CM6.3": ["", "Measure"], "CM6.4": ["", "Enable"]}, "asks": [["Will the College publish a yearly report that shows where it is behind?", "The outcome asks for credible reporting, and a report that shows only progress is not checkable. KPU and SFU both state their gaps in public (their reports). Recommendation: yes, with scope, date and approval route agreed in Year 1 so the first report appears in FY2027/28."], ["Confirm the recommended option: report every year, including where the College is behind.", "It reaches 4 of 5 on outreach and the consistency the outcome names, without publishing quarterly figures from areas whose measurement is not yet mature. Recommendation: confirm the recommended option."], ["Which student channel should carry sustainability content each term?", "Students are the larger audience and receive no regular sustainability content today, so reach depends on this more than on anything else. Recommendation: use a channel students already read, rather than a new one."], ["Should each regional campus have a named sustainability liaison with time set aside?", "Orientation outreach and campaigns run from Kelowna today. Recommendation: yes, aligned with the liaison network in the Organizational Structure and Funding plan so the role is set up once."], ["Can the College adopt a twelve-month review rule for public sustainability pages?", "It keeps the public record current between submissions at almost no cost. Recommendation: yes, with every page carrying its last review date."]], "openQuestions": [["How many students and employees make up the reach denominator?", "Every reach band is a share of this total, and the survey sample is drawn from it.", "institutional records", "FY2026/27"], ["How many employees receive the all-staff newsletter, and are open rates available?", "The all-staff newsletter is the College's widest existing sustainability channel to employees.", "college communications", "FY2026/27"], ["What readership figures exist for the newsletter, including Microsoft Teams channel membership?", "Subscribers, channel members, downloads and site analytics are accepted reach evidence.", "the Sustainability Office", "FY2026/27"], ["How many students does the orientation booth reach each term?", "It is the only in-person student touchpoint today and part of the reach story.", "the Sustainability Office", "FY2026/27"], ["Which campuses have the orientation campaigns run on since January 2026?", "Orientation outreach is described as Kelowna only; any regional campus orientation counts toward reach and the student orientation criterion.", "the Sustainability Office", "FY2026/27"], ["Will the December 2026 utility dashboard be public, and on which page?", "A public dashboard is evidence for the dashboards criterion and a reach channel in its own right.", "information technology", "FY2026/27"], ["Which partnerships are formal, sustainability-focused, or support underrepresented groups?", "Each of the three partnership indicators has its own definition, worth 3 points each.", "the Sustainability Office", "FY2026/27"], ["Which College facilities are open to the public, and on what fees?", "Shared facilities score on access and on free or low cost access separately.", "building operations", "FY2027/28"], ["Which sustainability networks for educational institutions does the College belong to today?", "Network membership is the first collaboration criterion and the easiest to evidence.", "the Sustainability Office", "FY2026/27"], ["Does a student sustainability organization exist on any campus?", "It is worth 2 points in co-curricular activities on its own.", "the Sustainability Office", "FY2027/28"], ["What do the newsletter, campaigns and reach survey cost each year?", "These costs are absorbed today and not budgeted separately.", "financial planning", "FY2027/28"], ["Which social media channels carry sustainability content, and with what reach?", "Followers and group members are accepted reach evidence.", "college communications", "FY2026/27"], ["Would a sustainability mark fit the College's brand guidelines?", "Raised in the Current State. Any mark has to sit inside the College brand.", "college communications", "FY2027/28"], ["When did the monthly newsletter run begin, and is it framed for one campus or four?", "Sources give September and November 2025, and one recent issue presents itself as a Kelowna newsletter.", "the Sustainability Office", "FY2026/27"], ["Will the Equity and Well Being impact area claim civic engagement (EN 5)?", "Eight points that this area has left with that area, so they are counted once.", "the Sustainability Office", "FY2026/27"], ["Will AASHE confirm how the collaboration cap and the civic engagement table labels are meant to read?", "The collaboration table adds to 3.6 against a 3 point maximum, and two civic engagement tables carry another credit's indicator numbers.", "the Sustainability Office", "FY2026/27"]], "kpis": [{"id": "reach", "name": "Stakeholders reached", "role": "Plan indicator", "credit": "STARS EN 1.2", "value": "Not yet", "unit": "measured", "tile": "Percentage of students and employees reached through outreach and communications. First measured in the Winter 2027 term.", "definition": "Percentage of campus stakeholders reached through outreach and communications: the share of all students and employees reached each year by the College's sustainability outreach, or aware of its sustainability initiatives, evidenced by a representative survey, communications analytics or a conservative estimate, as the STARS 3.0.1 manual defines them. This is the Communications indicator in the plan's agreed set of fourteen.", "unitDef": "Per cent band of students plus employees", "source": "Reach survey and channel analytics, reported in the STARS submission", "baseline": "Not measured. First measured in the Winter 2027 term (FY2026/27)", "bands": [["1 to 19%", 0.25], ["20 to 39%", 0.5], ["40 to 59%", 1.0], ["60 to 79%", 1.5], ["80 to 100%", 2.0]], "marks": [["UFV 2026, derived", "1 to 19%", "peer"], ["Target, November 2028", "20 to 39%", "target"], ["Target, November 2032", "40 to 59%", "target"]]}, {"id": "criteria", "name": "Outreach criteria", "role": "Supporting indicator", "credit": "STARS EN 1.1", "value": "4", "unit": "of 6", "tile": "Website, dashboards, newsletter and campaigns met. Student orientation goes in as it runs; employee orientation not yet.", "definition": "The number of the six STARS outreach and communications criteria the College meets and can evidence: central website, student orientation, employee orientation, dashboards or signage, a sustainability communications medium, and an outreach campaign in the last three years.", "unitDef": "Criteria met, of six, at 0.5 points each", "source": "STARS submission evidence, checked against the College's public pages", "baseline": "4 of 6 secure, October 2026. 5 of 6 if student orientation holds", "criteria": [["A", "Central sustainability website", "met", "Live in the main site navigation"], ["B", "Sustainability in student orientation", "pending", "Booth each term at Kelowna, submitted as it runs"], ["C", "Sustainability in employee orientation", "not", "Onboarding step planned for Year 1"], ["D", "Dashboards or signage", "met", "Live solar dashboard; full utility dashboard from December 2026"], ["E", "Sustainability communications medium", "met", "Monthly newsletter"], ["F", "Outreach campaign in the last three years", "met", "Water restrictions, waste audit, commute app"]]}, {"id": "report", "name": "Annual progress report", "role": "Supporting indicator", "credit": "Self-assessed; supports every credit", "value": "0", "unit": "of 5", "tile": "Annual public reports on every plan indicator. The first is due in FY2027/28.", "definition": "The number of consecutive years in which the College publishes, on its fixed date, a public progress report covering every plan indicator, including those behind target.", "unitDef": "Reports published on schedule, of five", "source": "The College's public sustainability pages", "baseline": "0. The statutory carbon report has been filed every year since 2008", "years": [["FY2026/27", "carbon", "scope agreed"], ["FY2027/28", "carbon", "first report"], ["FY2028/29", "carbon", "second"], ["FY2029/30", "carbon", "third"], ["FY2030/31", "carbon", "fourth"], ["FY2031/32", "carbon", "fifth"]]}], "asksNote": "Full wording, cost entries as they arrive and the evidence trail sit in the content of record for this area.", "footNote": "Primary source: the Communications Current State document for the Engagement focus area, last updated 22 October 2026, read in full and checked for hyperlinks three ways, none found. The desired outcome and baseline are quoted from the Roadmap tab of the Sustainability Plan Framework, whose six year cells for this area are blank. STARS credits verified against the AASHE STARS Technical Manual version 3.0.1 and the Innovation and Leadership credit catalogue. The College's STARS history read from its public AASHE reports of 2014 and 2023. The College's public sustainability pages and its June 2026 newsletter read in October 2026. Peer figures are theirs: AASHE scorecards for UNBC and UFV, the KPU Sustainability Report 2023 to 2024, the SFU final report on its 2020 to 2025 plan, and the twelve-institution Document Hub, which holds little on communications for Camosun, Douglas, Langara, BCIT, VCC and College of the Rockies. AASHE credit detail pages require a login, so peer scores are known but not how each criterion was met. No Okanagan College figure has been estimated. Where none exists the entry says so.", "peerDetail": [["UNBC", "STARS 3.0 Gold, 68.83, valid to April 2029. Outreach 3.5 of 5, co-curricular 8 of 9, partnerships 9 of 9, shared facilities 2 of 2, collaboration 3 of 3, civic engagement 4 of 8", "A 2025 to 2035 strategic plan, in draft, with annual reporting"], ["UFV", "STARS 3.0 Gold, 69.12, valid to June 2029, confirmed on the AASHE scorecard. Outreach 3.25 of 5, co-curricular 4.5 of 9, partnerships 9 of 9, shared facilities 1.5 of 2, collaboration 3 of 3, civic engagement 1 of 8. An annual sustainability report series from 2016/17", "A sustainability action pathway, in development"], ["KPU", "A first institution-wide sustainability report, 2023 to 2024, rating progress against its framework and naming gaps. 118 followers on its sustainability social media account", "Year over year reports from that baseline"], ["SFU", "A final report on its 2020 to 2025 plan, stating partial completions, including public dashboards paused", "A 2025 to 2030 strategy"], ["UBC Okanagan", "A monthly community newsletter run by its sustainability degree program, and a published summary of its climate plan engagement", "Implementation progress reporting against its climate plan"], ["Six colleges", "Camosun, Douglas, Langara, BCIT, VCC and College of the Rockies: STARS reports under earlier versions, statutory carbon filings, news items and goal pages. Nothing comparable on reach or yearly plan reporting in the Document Hub", "Not found in the sources read"]], "starsNotes": "Each credit's point table was added up. Outreach (3 plus 2), civic engagement (4, 1 and 3), partnerships (3, 3 and 3), continuing education (3) and shared facilities (eight parts at 0.25) all total correctly. Two presentation points are worth one written inquiry to AASHE: two civic engagement tables carry the indicator numbers 7.2 and 7.3 where 5.2 and 5.3 are meant, and the collaboration table adds to 3.6 against a stated maximum of 3, which the rule of five criteria out of six resolves, so a sixth criterion earns nothing. The reach indicator accepts three routes: a representative survey, analytics for the single widest sustainability channel, or a conservative estimate that combines the best student source with the best employee source. Bonus credits in the Innovation and Leadership (IL) catalogue that fit this area: IL 16 community engagement assessment and IL 11 green events program. IL 17, the community partnerships inventory, is counted in the UNSDGs impact area, whose plan indicator counts inventories mapped to the Sustainable Development Goals; this area supplies the inventory. Reporting assurance and the data quality certificate are counted in the Performance Measurement impact area."}]};
+"use strict";
+/* Communications module renderer. Adapted from the Infrastructure shell's
+   renderers: the carbon blocks are removed, the action tags read Measure,
+   Enable and Deliver, and each activity carries a Lead and a timing band. */
+
+var el = function (id) { return document.getElementById(id); };
+var esc = function (s) {
+  return String(s).replace(/&(?![a-z]+;|#\d+;)/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+};
+var escb = function (s) { return esc(s).replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>"); };
+var setHTML = function (id, html) { var n = el(id); if (n) { n.innerHTML = html; } };
+var WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+  "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+var tens = { 3: "thirty", 4: "forty", 5: "fifty" };
+var inWords = function (n) {
+  if (n <= 20) { return WORDS[n]; }
+  var t = Math.floor(n / 10), u = n % 10;
+  var base = (t === 2) ? "twenty" : tens[t];
+  return u ? base + " " + WORDS[u] : base;
+};
+var cap = function (s) { return s.charAt(0).toUpperCase() + s.slice(1); };
+
+var tagPill = function (kind) {
+  return '<span class="sc-tags"><span class="sc-kind ' + kind.toLowerCase() + '">' + esc(kind) + "</span></span>";
+};
+
+var renderFigures = function (m) {
+  setHTML("figs", m.figures.map(function (f) {
+    var unit = f.unit ? '<span class="unit">' + esc(f.unit) + "</span>" : "";
+    var small = (f.n.length > 6) ? " numtxt" : "";
+    return '<div class="fig' + (f.hero ? " hero" : "") + '">' +
+      '<div class="num' + small + '">' + esc(f.n) + unit + "</div>" +
+      '<div class="lbl">' + esc(f.label) + "</div>" +
+      '<p class="sub2">' + esc(f.sub) + "</p></div>";
+  }).join(""));
+};
+
+var renderRail = function (m) {
+  var nodes = m.rail.nodes.map(function (n) {
+    return '<div class="rail-node' + (n.hot ? " hot" : "") + '"><span class="dot"></span>' +
+      '<div class="d">' + esc(n.d) + '</div><p class="w">' + esc(n.w) + "</p></div>";
+  }).join("");
+  setHTML("railWrap", '<div class="rail"><div class="rail-band"><span>' + esc(m.rail.bandLabel) +
+    '</span></div><div class="rail-line"></div>' + nodes + "</div>");
+};
+
+var renderLocator = function (plan, m) {
+  setHTML("locatorGrid", plan.framework.focusAreas.map(function (fa) {
+    var active = fa.impactAreas.indexOf(m.impactArea) > -1;
+    var items = fa.impactAreas.map(function (ia) {
+      if (ia === m.impactArea) { return '<div class="loc-item on">' + esc(ia) + " <i>&middot; this brief</i></div>"; }
+      if (plan.drafted.indexOf(ia) > -1) { return '<div class="loc-item done">' + esc(ia) + " <i>&middot; drafted</i></div>"; }
+      return '<div class="loc-item">' + esc(ia) + "</div>";
+    }).join("");
+    return '<div class="loc-col' + (active ? " active" : "") + '"><h4>' + esc(fa.name) + "</h4>" + items + "</div>";
+  }).join(""));
+};
+
+var renderSituation = function (m) {
+  setHTML("situation-text", m.situation.map(function (p, i) {
+    return "<p" + (i === 0 ? ' class="lead"' : "") + ">" + escb(p) + "</p>";
+  }).join(""));
+  setHTML("peer-text", m.peerLine.join(""));
+  var rows = m.peerDetail.map(function (r) {
+    return '<tr><td class="strong prose">' + esc(r[0]) + '</td><td class="prose">' + esc(r[1]) +
+      '</td><td class="prose">' + esc(r[2]) + "</td></tr>";
+  }).join("");
+  setHTML("peerDetail", '<div class="tw"><table class="t-top stack">' +
+    '<colgroup><col style="width:20%"><col style="width:50%"><col style="width:30%"></colgroup>' +
+    "<thead><tr><th>Peer</th><th>Achieved (their figures)</th><th>Promised</th></tr></thead><tbody>" + rows + "</tbody>" +
+    "<caption>Achievements are what each peer has published as done. Promises are plans or reports in draft. " +
+    "UFV's reach band is derived from its published credit score, not published by UFV.</caption></table></div>");
+};
+
+var truthHTML = function (t, i) {
+  return '<div class="cb-truth" data-n="' + (i + 1) + '"><div><h4>' + esc(t[0]) + "</h4><p>" + esc(t[1]) + "</p></div></div>";
+};
+
+var renderCase = function (m) {
+  var c = m["case"];
+  setHTML("cbHeadline", esc(c.headline));
+  setHTML("cmChain", c.chain.map(function (s, i) {
+    return '<div class="cm-step"><span class="cm-n">' + (i + 1) + '</span><span class="cm-t">' + esc(s[0]) +
+      '</span><span class="cm-d">' + esc(s[1]) + "</span></div>";
+  }).join(""));
+  setHTML("cbTruths", c.truths.slice(0, 3).map(truthHTML).join(""));
+  setHTML("cbTruthsMore", c.truths.slice(3).map(function (t, i) { return truthHTML(t, i + 3); }).join(""));
+  var rows = c.levers.map(function (l) {
+    return '<tr><td class="c nw strong">' + esc(l[4]) + '</td><td class="prose strong2">' + esc(l[0]) +
+      '</td><td class="prose">' + esc(l[1]) + '</td><td class="prose">' + esc(l[2]) + '</td><td class="prose">' + esc(l[3]) + "</td></tr>";
+  }).join("");
+  setHTML("lvTable", '<table class="t-top stack"><colgroup><col style="width:7%"><col style="width:25%"><col style="width:30%"><col style="width:22%"><col style="width:16%"></colgroup>' +
+    '<thead><tr><th class="c">Rank</th><th>Lever</th><th>What it does for the outcome</th><th>What STARS scores</th><th>Cost</th></tr></thead>' +
+    "<tbody>" + rows + "</tbody><caption>No lever here has been costed in money. Where a cost exists it is staff time, and it is entered in the content of record as figures arrive.</caption></table>");
+  setHTML("cbMethod", esc(c.method));
+};
+
+var starsChip = function (s) {
+  if (s === "other") { return '<span class="chip na">Counted in another area</span>'; }
+  if (s === "block") { return '<span class="chip go">Blocked on data</span>'; }
+  if (s === "part") { return '<span class="chip">Partly available</span>'; }
+  return '<span class="chip">Unclaimed</span>';
+};
+
+var renderStars = function (m) {
+  var rows = m.stars.map(function (s) {
+    return '<tr><td class="strong nw c">' + esc(s.credit) + '</td><td class="prose strong2">' + esc(s.title) +
+      '</td><td class="c strong">' + esc(s.pts) + '</td><td class="prose">' + esc(s.needs) +
+      '</td><td class="prose">' + esc(s.stands) + '<div style="margin-top:7px">' + starsChip(s.state) + "</div></td></tr>";
+  }).join("");
+  setHTML("starsTable", '<table class="t-top stack"><colgroup><col style="width:9%"><col style="width:16%"><col style="width:11%"><col style="width:34%"><col style="width:30%"></colgroup>' +
+    '<thead><tr><th class="c">Credit</th><th>Title</th><th class="c">Points</th><th>What it needs</th><th>Where Okanagan College stands</th></tr></thead>' +
+    "<tbody>" + rows + "</tbody><caption>Verified credit by credit against the AASHE STARS Technical Manual version 3.0.1 and its Innovation and Leadership catalogue. " +
+    "The last three rows are shown so the boundary is visible; their points are counted once, in the areas named.</caption></table>");
+  setHTML("starsNotes", esc(m.starsNotes));
+};
+
+var renderTargets = function (m) {
+  var card = function (t, wide) {
+    return '<div class="tcard' + (wide ? " wcard" : "") + '"><span class="tag">' + esc(t.tag) + "</span>" +
+      '<p class="stmt">' + esc(t.stmt) + '</p><p class="base">' + escb(t.base) + "</p>" +
+      '<p class="base" style="border-top:0;padding-top:8px"><b>Why this one.</b> ' + esc(t.why) + "</p></div>";
+  };
+  setHTML("targets", card(m.target.outcome) + card(m.target.lever) + card(m.target.third, true));
+};
+
+var renderTiers = function (plan) {
+  var t = plan.tierOptions;
+  setHTML("tierFrame", esc(plan.tierFrame));
+  var head = '<tr><th class="tier-h" style="border-bottom:2px solid var(--line)"></th>' + t.map(function (o) {
+    var rec = o.name === "Recommended";
+    return '<th class="tier-h' + (rec ? " recd" : "") + '"><span class="tno">' + esc(o.pct) + '</span><span class="tname">' +
+      esc(o.name) + '</span><span class="tsub">' + esc(o.sub) + "</span></th>";
+  }).join("") + "</tr>";
+  var defs = [["What it adds", "adds"], ["What the College has to do", "requires"], ["Capital", "capital"],
+    ["Operating cost", "operating"], ["What comes back", "revenue"], ["Depends on others", "external"],
+    ["What it does for the outcome", "outcome"], ["What it earns in STARS", "earns"], ["Biggest risk", "risk"]];
+  var body = defs.map(function (d) {
+    return '<tr><td class="tier-lbl">' + esc(d[0]) + "</td>" + t.map(function (o) {
+      var v = o[d[1]];
+      v = (Object.prototype.toString.call(v) === "[object Array]") ?
+        "<ul><li>" + v.map(esc).join("</li><li>") + "</li></ul>" : esc(v);
+      return '<td class="tier-c' + (o.name === "Recommended" ? " recd" : "") + '">' + v + "</td>";
+    }).join("") + "</tr>";
+  }).join("");
+  setHTML("tierTable", '<table class="t-top stack"><colgroup><col style="width:16%"><col style="width:28%"><col style="width:28%"><col style="width:28%"></colgroup>' +
+    "<thead>" + head + "</thead><tbody>" + body + "</tbody><caption>The figure above each option is the outreach and communications score it reaches by November 2032, out of 5. " +
+    "Nothing here is estimated; where no cost exists the entry says not yet costed.</caption></table>");
+};
+
+var renderYears = function (plan, m) {
+  var fw = plan.framework, total = 0;
+  setHTML("ytabs", fw.years.map(function (y, i) {
+    return '<button type="button" class="ytab' + (i === 0 ? " on" : "") + '" data-y="' + y.id + '">' + y.id + " &middot; " +
+      esc(y.fy) + (y.submits ? '<span class="st"></span>' : "") + "</button>";
+  }).join(""));
+  setHTML("ypanels", fw.years.map(function (y, i) {
+    var d = m.years[y.id], n = { Measure: 0, Enable: 0, Deliver: 0 };
+    var rows = d.activities.map(function (a) {
+      n[a[4]] += 1; total += 1;
+      return '<tr><td class="strong nw c">' + esc(a[0]) + '</td><td class="prose">' + esc(a[1]) + '</td><td class="prose">' +
+        esc(cap(a[2])) + '</td><td class="c nw">' + esc(a[3]) + '</td><td class="c nw">' + tagPill(a[4]) + "</td></tr>";
+    }).join("");
+    var dist = '<div class="sc-dist"><span><b>' + n.Measure + "</b> Measure</span><span><b>" + n.Enable +
+      "</b> Enable</span><span><b>" + n.Deliver + "</b> Deliver</span><span><b>" + d.activities.length + "</b> activities</span></div>";
+    return '<div class="ypanel' + (i === 0 ? " on" : "") + '" data-y="' + y.id + '"><div class="yhead"><span class="yt">' + esc(d.theme) +
+      '</span><span class="ym">' + esc(y.span) + " &middot; " + esc(y.period) + "</span></div>" +
+      '<p class="ym" style="font-size:13px;color:var(--ink-3);margin:10px 0 0">' + esc(y.milestone) + "</p>" +
+      '<p class="youtcome"><b>What is true by the end of the year.</b> ' + esc(d.outcome) + "</p>" + dist +
+      '<div class="tw"><table class="t-top stack"><colgroup><col style="width:9%"><col style="width:47%"><col style="width:20%"><col style="width:11%"><col style="width:13%"></colgroup>' +
+      '<thead><tr><th class="c">ID</th><th>Activity</th><th>Lead</th><th class="c">Timing</th><th class="c">Tag</th></tr></thead><tbody>' + rows +
+      "</tbody></table></div></div>";
+  }).join(""));
+  setHTML("roadmapSub", cap(inWords(total)) + " activities, each with an identifier, a Lead, a timing band and one action tag. " +
+    "Measure produces a number, Enable makes delivery possible and Deliver moves the outcome itself. No activity moves emissions, so none carries a scope tag. " +
+    "Year 1 leans towards Measure, because reach has never been measured and three inventories have to exist before the credits can be claimed.");
+};
+
+var renderAsks = function (m) {
+  setHTML("asksList", m.asks.map(function (a) {
+    return '<div class="ask"><div><h4>' + esc(a[0]) + "</h4><p>" + esc(a[1]) + "</p></div></div>";
+  }).join(""));
+};
+
+var renderOpen = function (m) {
+  var rows = m.openQuestions.map(function (q) {
+    return '<tr><td class="strong prose">' + esc(q[0]) + '</td><td class="prose">' + esc(q[1]) + '</td><td class="prose">' +
+      esc(cap(q[2])) + '</td><td class="c nw strong">' + esc(q[3]) + "</td></tr>";
+  }).join("");
+  setHTML("openTable", '<table class="t-top stack"><colgroup><col style="width:30%"><col style="width:40%"><col style="width:18%"><col style="width:12%"></colgroup>' +
+    '<thead><tr><th>Question</th><th>Why it matters</th><th>Lead</th><th class="c">Due</th></tr></thead><tbody>' + rows + "</tbody></table>");
+  setHTML("openSub", cap(inWords(m.openQuestions.length)) + " questions, none of them filled with an estimate. Most are answered by the Year 1 inventories and the first reach survey.");
+};
+
+var renderFoot = function (m) { setHTML("footNote", "<b>Method.</b> " + esc(m.footNote) + " " + esc(m.asksNote)); };
+
+var selectYear = function (id) {
+  Array.prototype.forEach.call(document.querySelectorAll(".ytab"), function (t) { t.classList.toggle("on", t.getAttribute("data-y") === id); });
+  Array.prototype.forEach.call(document.querySelectorAll(".ypanel"), function (p) { p.classList.toggle("on", p.getAttribute("data-y") === id); });
+};
+var wireYears = function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".ytab"), function (t) {
+    t.addEventListener("click", function (e) { selectYear(e.currentTarget.getAttribute("data-y")); });
+  });
+};
+var wireTheme = function () {
+  var btn = el("themeBtn");
+  if (!btn) { return; }
+  btn.addEventListener("click", function () {
+    var root = document.documentElement, cur = root.getAttribute("data-theme");
+    var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = cur === "dark" ? "light" : (cur === "light" ? "dark" : (dark ? "light" : "dark"));
+    root.setAttribute("data-theme", next);
+    btn.textContent = next === "dark" ? "Light" : "Dark";
+  });
+};
+
+
+/* Small screens: tables stack into labelled rows. Labels come from each table's own header. */
+var labelTables = function (root) {
+  Array.prototype.forEach.call((root || document).querySelectorAll("table.stack"), function (tb) {
+    var heads = Array.prototype.map.call(tb.querySelectorAll("thead th"), function (th) {
+      var nm = th.querySelector(".tname");
+      return (nm ? nm.textContent : th.textContent).trim();
+    });
+    Array.prototype.forEach.call(tb.querySelectorAll("tbody tr"), function (tr) {
+      Array.prototype.forEach.call(tr.children, function (td, i) {
+        if (heads[i] && !td.classList.contains("tier-lbl")) { td.setAttribute("data-label", heads[i]); }
+      });
+    });
+  });
+};
+window.ocLabelTables = labelTables;
+
+(function boot() {
+  var m = OC_PLAN.modules[0];
+  renderFigures(m);
+  renderRail(m);
+  renderLocator(OC_PLAN, m);
+  renderSituation(m);
+  renderCase(m);
+  renderStars(m);
+  renderTargets(m);
+  renderTiers(OC_PLAN);
+  renderYears(OC_PLAN, m);
+  renderAsks(m);
+  renderOpen(m);
+  renderFoot(m);
+  wireYears();
+  wireTheme();
+  labelTables();
+}());
+
+</script>
+<script>
+/* ============================================================
+   INDICATOR TILES AND PANELS
+   One closure, reading OC_PLAN.modules[0].kpis, so the master plan can
+   carry the same data and the same panel code. Colours come from the
+   page tokens through style="fill:var(--token)", so nothing here holds
+   a colour value and a theme switch needs no redraw. Charts are sized to
+   their container and redrawn on resize, because a chart drawn inside a
+   collapsed section measures zero width.
+   ============================================================ */
+(function () {
+"use strict";
+var K = OC_PLAN.modules[0].kpis;
+var el = function (id) { return document.getElementById(id); };
+var esc = function (s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); };
+var sel = K[0].id;
+
+var t = function (x, y, s, cls, anchor) {
+  return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" class="' + (cls || "tk") + '"' +
+    (anchor ? ' text-anchor="' + anchor + '"' : "") + ">" + esc(s) + "</text>";
+};
+var rect = function (x, y, w, h, fill, extra) {
+  return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(0, w).toFixed(1) + '" height="' + h +
+    '" rx="4" style="' + fill + '"' + (extra || "") + "></rect>";
+};
+var svg = function (w, h, body, label) {
+  return '<div class="chartwrap"><svg class="chart" viewBox="0 0 ' + w + " " + h + '" width="' + w + '" height="' + h +
+    '" role="img" aria-label="' + esc(label) + '">' + body + "</svg></div>";
+};
+var width = function () {
+  var p = el("kpiPanel");
+  var w = p ? p.clientWidth - 54 : 860;
+  return Math.max(300, Math.min(900, w || 860));
+};
+
+/* ---------- reach: the scored band ladder, with targets and one derived peer mark ---------- */
+var chartReach = function (k) {
+  var W = width(), narrow = W < 600;
+  var lw = narrow ? 0 : 104, vw = narrow ? 80 : 84, rw = narrow ? 0 : 190, bh = 22;
+  var rowH = narrow ? 58 : 38, H = k.bands.length * rowH + 14;
+  var plot = W - lw - vw - rw, body = "";
+  k.bands.forEach(function (b, i) {
+    var y = i * rowH + 8, by = narrow ? y + 16 : y;
+    var mark = k.marks.filter(function (m) { return m[1] === b[0]; })[0];
+    var fill = "fill:var(--surface-2);stroke:var(--line)";
+    if (mark && mark[2] === "target") { fill = "fill:var(--cherry)"; }
+    if (mark && mark[2] === "peer") { fill = "fill:var(--sunset)"; }
+    var bw = (b[1] / 2) * plot;
+    if (narrow) {
+      body += t(0, y + 10, b[0], "tkb");
+      body += rect(0, by, bw, bh, fill);
+      body += t(bw + 8, by + bh * 0.68, b[1] + (b[1] === 1 ? " point" : " points"), "vlab");
+      if (mark) { body += t(W, y + 10, mark[0], "tk", "end"); }
+    } else {
+      body += t(lw - 12, y + bh * 0.68, b[0], "tkb", "end");
+      body += rect(lw, by, bw, bh, fill);
+      body += t(lw + bw + 8, by + bh * 0.68, b[1] + (b[1] === 1 ? " point" : " points"), "vlab");
+      if (mark) { body += t(lw + plot + vw + 12, y + bh * 0.68, mark[0], "tk"); }
+    }
+  });
+  return svg(W, H, body, "STARS reach bands and the points each earns");
+};
+
+/* ---------- outreach criteria: six half-point criteria by status ---------- */
+var chartCriteria = function (k) {
+  var W = width(), narrow = W < 600;
+  var lw = narrow ? 0 : 290, bh = 22, rowH = narrow ? 54 : 36, H = k.criteria.length * rowH + 14;
+  var bw = narrow ? Math.min(150, W * 0.45) : 150, body = "";
+  var look = { met: ["fill:var(--cherry)", "Met"], pending: ["fill:var(--sunset)", "Submitted as it runs"], not: ["fill:none;stroke:var(--ink-3);stroke-dasharray:4 3", "Not yet"] };
+  k.criteria.forEach(function (c, i) {
+    var y = i * rowH + 8, by = narrow ? y + 16 : y, L = look[c[2]];
+    if (narrow) {
+      body += t(0, y + 10, c[0] + ". " + c[1], "tkb");
+      body += rect(0, by, bw, bh, L[0]);
+      body += t(bw + 10, by + bh * 0.68, L[1], "vlab");
+    } else {
+      body += t(lw - 12, y + bh * 0.68, c[0] + ". " + c[1], "tkb", "end");
+      body += rect(lw, by, bw, bh, L[0]);
+      body += t(lw + bw + 12, by + bh * 0.68, L[1] + ", 0.5 points", "vlab");
+    }
+  });
+  return svg(W, H, body, "The six STARS outreach criteria by status");
+};
+
+/* ---------- annual report: the yearly record, existing and planned ---------- */
+var chartReport = function (k) {
+  var W = width(), narrow = W < 600, lw = narrow ? 8 : 200, top = narrow ? 34 : 24;
+  var n = k.years.length, slot = (W - lw - 8) / n, H = narrow ? 168 : 128, body = "";
+  var rows = [["Statutory carbon report", top + 30], ["Annual progress report", top + 74]];
+  rows.forEach(function (r) {
+    if (narrow) { body += t(lw, r[1] - 16, r[0], "tkb"); }
+    else { body += t(lw - 14, r[1] + 4, r[0], "tkb", "end"); }
+    body += '<line x1="' + lw + '" x2="' + (W - 8) + '" y1="' + r[1] + '" y2="' + r[1] + '" class="gr"></line>';
+  });
+  k.years.forEach(function (y, i) {
+    var cx = lw + slot * i + slot / 2;
+    body += t(cx, top - 6, narrow ? y[0].replace("FY20", "") : y[0], "tk", "middle");
+    body += '<circle cx="' + cx.toFixed(1) + '" cy="' + rows[0][1] + '" r="7" style="fill:var(--accent-ink)"></circle>';
+    if (i === 0) {
+      body += '<circle cx="' + cx.toFixed(1) + '" cy="' + rows[1][1] + '" r="7" style="fill:none;stroke:var(--ink-3);stroke-dasharray:3 3;stroke-width:1.6"></circle>';
+    } else {
+      body += '<circle cx="' + cx.toFixed(1) + '" cy="' + rows[1][1] + '" r="7" style="fill:none;stroke:var(--cherry);stroke-width:2.4"></circle>';
+    }
+    if (!narrow) { body += t(cx, rows[1][1] + 26, y[2], "tk", "middle"); }
+  });
+  return svg(W, H, body, "Statutory carbon reports and planned annual progress reports by fiscal year");
+};
+
+var meta = function (k) {
+  var rows = [["Indicator", k.definition], ["Unit", k.unitDef], ["Source", k.source], ["Baseline", k.baseline], ["Scored by", k.credit]];
+  return '<dl class="kmeta">' + rows.map(function (r) { return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>"; }).join("") + "</dl>";
+};
+
+var legend = function (items) {
+  return '<div class="legend">' + items.map(function (i) {
+    return '<span><i style="' + i[0] + '"></i>' + esc(i[1]) + "</span>";
+  }).join("") + "</div>";
+};
+
+var fold = function (head, rows) {
+  return '<details class="prov"><summary>Every value in the chart</summary><div class="prov-body"><div class="tw"><table class="t-top stack"><thead><tr>' +
+    head.map(function (h) { return "<th>" + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+    rows.map(function (r) { return "<tr>" + r.map(function (c) { return '<td class="prose">' + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") +
+    "</tbody></table></div></div></details>";
+};
+
+var panel = function (k) {
+  var h = "<h3>" + esc(k.name) + (k.role ? ' <span class="krole">' + esc(k.role) + "</span>" : "") + '</h3><p class="ksub">' + esc(k.tile) + "</p>" + meta(k);
+  if (k.id === "reach") {
+    h += legend([["background:var(--cherry)", "Target band"], ["background:var(--sunset)", "Peer position, derived"], ["background:var(--surface-2);border:1px solid var(--line)", "Other bands"]]);
+    h += chartReach(k);
+    h += '<p class="knote">Okanagan College has no reach figure yet, so the chart shows the scale it will be scored on and the bands this plan targets. ' +
+      "The College's first measurement comes from the Winter 2027 survey. UFV's band is derived from its published outreach score of 3.25, which works only as full marks on the six criteria plus the lowest band.</p>";
+    h += fold(["Band", "Points", "Marked as"], k.bands.map(function (b) {
+      var m = k.marks.filter(function (x) { return x[1] === b[0]; })[0];
+      return [b[0], String(b[1]), m ? m[0] : ""];
+    }));
+  } else if (k.id === "criteria") {
+    h += legend([["background:var(--cherry)", "Met"], ["background:var(--sunset)", "Submitted as it runs"], ["border:1px dashed var(--ink-3)", "Not yet"]]);
+    h += chartCriteria(k);
+    h += '<p class="knote">Each criterion is worth 0.5 points and is met or not. Four are met today. Student orientation goes into the November 2026 submission as it runs at Kelowna and will be tested against the criterion; employee orientation is planned for Year 1.</p>';
+    h += fold(["Criterion", "Status", "Evidence"], k.criteria.map(function (c) {
+      return [c[0] + ". " + c[1], { met: "Met", pending: "Submitted as it runs", not: "Not yet" }[c[2]], c[3]];
+    }));
+  } else {
+    h += legend([["background:var(--accent-ink);border-radius:50%", "Statutory carbon report, required every year"], ["border:2px solid var(--cherry);border-radius:50%", "Annual progress report, planned"], ["border:1px dashed var(--ink-3);border-radius:50%", "Scope and date agreed"]]);
+    h += chartReport(k);
+    h += '<p class="knote">The College already files a public carbon report every year, and has since 2008. The planned progress report is the yearly account of the whole plan, including indicators that are behind. Planned reports are targets, not results.</p>';
+    h += fold(["Fiscal year", "Statutory carbon report", "Annual progress report"], k.years.map(function (y) {
+      return [y[0], "Required", y[2]];
+    }));
+  }
+  return h;
+};
+
+var tiles = function () {
+  el("kpiTiles").innerHTML = K.map(function (k) {
+    return '<button class="kpitile' + (k.id === sel ? " on" : "") + '" type="button" data-kpi="' + k.id + '" aria-pressed="' + (k.id === sel) + '">' +
+      '<span class="kn">' + esc(k.name) + (k.role ? ' &middot; ' + esc(k.role) : '') + '</span><span class="kv">' + esc(k.value) + "<small>" + esc(k.unit) + "</small></span>" +
+      '<span class="kt">' + esc(k.tile) + "</span></button>";
+  }).join("");
+};
+var draw = function () {
+  var k = K.filter(function (x) { return x.id === sel; })[0];
+  var was = Array.prototype.map.call(el("kpiPanel").querySelectorAll("details"), function (d) { return d.open; });
+  tiles();
+  el("kpiPanel").innerHTML = '<div class="kpanel">' + panel(k) + "</div>";
+  Array.prototype.forEach.call(el("kpiPanel").querySelectorAll("details"), function (d, i) { if (was[i]) { d.open = true; } });
+  if (window.ocLabelTables) { window.ocLabelTables(el("kpiPanel")); }
+};
+el("kpi").addEventListener("click", function (e) {
+  var b = e.target.closest ? e.target.closest("[data-kpi]") : null;
+  if (b) { sel = b.getAttribute("data-kpi"); draw(); }
+});
+var rt;
+window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+}());
+
+</script>
+<script>
+/* Folded source panels print open, so a PDF is never short of its evidence.
+   Lifted from OC_11_Carbon_Zero_BRIEF.html. */
+(function () {
+  var was = [];
+  window.addEventListener("beforeprint", function () {
+    was = [];
+    Array.prototype.forEach.call(document.querySelectorAll("details.prov"), function (d) {
+      was.push(d.open); d.open = true;
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    Array.prototype.forEach.call(document.querySelectorAll("details.prov"), function (d, i) {
+      d.open = !!was[i];
+    });
+  });
+}());
+</script>
+
+<style>
+/* ---------- collapsible sections (added, presentation only) ---------- */
+.sec-toggle {
+  display: flex; align-items: flex-start; gap: 12px;
+  width: 100%; margin: 0; padding: 0;
+  background: none; border: 0; font: inherit; color: inherit;
+  text-align: left; cursor: pointer; -webkit-appearance: none; appearance: none;
+}
+.sec-toggle:hover h2, .sec-toggle:hover .loc-kicker { color: var(--accent); }
+.sec-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 4px; }
+.sec-chev {
+  flex: 0 0 auto; width: 22px; height: 22px; margin-top: 5px;
+  border: 1px solid var(--line); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--ink-3);
+  transition: transform .18s ease, color .18s ease, border-color .18s ease;
+}
+.sec-chev svg { width: 10px; height: 10px; display: block; }
+.sec-toggle:hover .sec-chev { color: var(--accent); border-color: var(--accent); }
+.sec-toggle[aria-expanded="true"] .sec-chev { transform: rotate(90deg); }
+.sec-body[hidden] { display: none; }
+.sec-collapsed { padding-top: 26px; padding-bottom: 26px; }
+
+/* the locator heading reads as a section heading like every other one */
+.sec-toggle > .loc-kicker {
+  font-size: clamp(22px, 2.4vw, 29px); font-weight: 600; letter-spacing: -.01em;
+  text-transform: none; color: var(--ink); margin: 0 0 6px;
+}
+#locator .sec-body { margin-top: 14px; }
+#locator.sec-collapsed { background: transparent; }
+
+/* expand all / collapse all, beside the theme button */
+.mast-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* back to top */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 60;
+  width: 46px; height: 46px; padding: 0; border-radius: 999px;
+  background: var(--bg); color: var(--ink-2);
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease,
+              color .2s ease, border-color .2s ease;
+}
+.to-top.on { opacity: 1; visibility: visible; }
+.to-top:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.to-top svg { width: 15px; height: 15px; display: block; }
+@media (max-width: 620px) { .to-top { right: 14px; bottom: 14px; } }
+
+@media print {
+  .sec-body[hidden] { display: block !important; }
+  .sec-chev, .to-top, .mast-actions { display: none !important; }
+  .sec-collapsed { padding-top: 52px; padding-bottom: 52px; }
+  #locator.sec-collapsed { background: var(--surface); }
+}
+</style>
+<script>
+/* Collapsible sections, expand/collapse all, and back to top.
+   Purely presentational: the content is already rendered by the script above,
+   so this only wraps, hides and reveals it. No content is altered. */
+(function () {
+  var KEEP_OPEN = { kpi: 1, figures: 1 };
+  var CHEV = '<svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">'
+    + '<path d="M3 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7"'
+    + ' stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var ARROW = '<svg viewBox="0 0 12 12" aria-hidden="true" focusable="false">'
+    + '<path d="M6 10.5V2M2 5.5L6 1.5l4 4" fill="none" stroke="currentColor"'
+    + ' stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var panels = [];
+
+  /* ---- 1. make every section collapsible ---- */
+  var secs = document.querySelectorAll("body > section[id]");
+  Array.prototype.forEach.call(secs, function (sec) {
+    var wrap = sec.firstElementChild;
+    if (!wrap || String(wrap.className).indexOf("wrap") < 0) return;
+
+    var head = wrap.querySelector("h2") || wrap.querySelector(".loc-kicker");
+    if (!head || head.parentNode !== wrap) return;
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "sec-toggle";
+    var chev = document.createElement("span");
+    chev.className = "sec-chev";
+    chev.innerHTML = CHEV;
+
+    wrap.insertBefore(btn, head);
+    btn.appendChild(chev);
+    btn.appendChild(head);
+
+    var body = document.createElement("div");
+    body.className = "sec-body";
+    body.id = "secbody-" + sec.id;
+    while (btn.nextSibling) body.appendChild(btn.nextSibling);
+    wrap.appendChild(body);
+    btn.setAttribute("aria-controls", body.id);
+
+    var open = !!KEEP_OPEN[sec.id];
+    function apply(o, quiet) {
+      open = o;
+      btn.setAttribute("aria-expanded", o ? "true" : "false");
+      body.hidden = !o;
+      if (o) { sec.classList.remove("sec-collapsed"); }
+      else { sec.classList.add("sec-collapsed"); }
+      if (o && !quiet) { try { window.dispatchEvent(new Event("resize")); } catch (e) {} }
+    }
+    apply(open, true);
+    panels.push({ set: apply, isOpen: function () { return open; } });
+
+    btn.addEventListener("click", function () { apply(!open); });
+  });
+
+  function setAll(o) {
+    panels.forEach(function (p) { p.set(o, true); });
+    if (o) { try { window.dispatchEvent(new Event("resize")); } catch (e) {} }
+  }
+
+  /* ---- 2. expand all / collapse all, beside Theme ---- */
+  var mastTop = document.querySelector(".mast-top");
+  var themeBtn = document.getElementById("themeBtn");
+  if (mastTop) {
+    var actions = document.createElement("div");
+    actions.className = "mast-actions";
+
+    var expandBtn = document.createElement("button");
+    expandBtn.type = "button";
+    expandBtn.className = "btn";
+    expandBtn.textContent = "Expand all";
+
+    var collapseBtn = document.createElement("button");
+    collapseBtn.type = "button";
+    collapseBtn.className = "btn";
+    collapseBtn.textContent = "Collapse all";
+
+    actions.appendChild(expandBtn);
+    actions.appendChild(collapseBtn);
+    if (themeBtn) { actions.appendChild(themeBtn); }   /* keeps its existing handler */
+    mastTop.appendChild(actions);
+
+    expandBtn.addEventListener("click", function () { setAll(true); });
+    collapseBtn.addEventListener("click", function () {
+      setAll(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ---- 3. back to top ---- */
+  var top = document.createElement("button");
+  top.type = "button";
+  top.className = "to-top";
+  top.setAttribute("aria-label", "Back to top");
+  top.title = "Back to top";
+  top.innerHTML = ARROW;
+  document.body.appendChild(top);
+  top.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  function toggleTop() {
+    if (window.pageYOffset > 320) { top.classList.add("on"); }
+    else { top.classList.remove("on"); }
+  }
+  window.addEventListener("scroll", toggleTop, { passive: true });
+  toggleTop();
+}());
+</script>
+
+<script>
+/* Always open in the light (white) theme, whatever the OS setting or any
+   previously stored choice. The Theme button still switches within the session. */
+(function () {
+  var root = document.documentElement;
+  root.setAttribute("data-theme", "light");
+  try { localStorage.removeItem("oc-tx-theme"); } catch (e) {}
+  var tb = document.getElementById("themeBtn");
+  if (tb) { tb.textContent = "Dark"; }
+}());
+</script>
+
+<script type="application/json" id="ocRollup">
+{
+ "prefix": "CM",
+ "impactArea": "Communications",
+ "focusArea": "Engagement",
+ "n": 6,
+ "version": "1.0",
+ "derivedDate": "2026-10-22",
+ "carbonSummary": "not a carbon area",
+ "outcomeSummary": {
+  "baseline": "0 annual progress reports; statutory carbon report only",
+  "y6Target": "5 consecutive annual progress reports by FY2031/32",
+  "unit": "reports published on schedule"
+ },
+ "stars": [
+  {
+   "credit": "EN 1",
+   "pts": 5,
+   "state": "part",
+   "note": "2 secure today; target 4 by Nov 2032"
+  },
+  {
+   "credit": "EN 2",
+   "pts": 9,
+   "state": "open"
+  },
+  {
+   "credit": "EN 6",
+   "pts": 9,
+   "state": "part"
+  },
+  {
+   "credit": "EN 8",
+   "pts": 2,
+   "state": "part"
+  },
+  {
+   "credit": "EN 9",
+   "pts": 3,
+   "state": "open"
+  }
+ ],
+ "starsCitedElsewhere": [
+  {
+   "credit": "EN 5",
+   "pts": 8,
+   "owner": "Equity & Well Being, to decide"
+  },
+  {
+   "credit": "EN 7",
+   "pts": 3,
+   "owner": "Curriculum"
+  },
+  {
+   "credit": "IL 17",
+   "pts": 1,
+   "bonus": true,
+   "owner": "UNSDGs; this area supplies the inventory"
+  }
+ ],
+ "tiers": [
+  {
+   "name": "Required",
+   "capital": null,
+   "operating": null,
+   "note": "Not yet costed; staff time inside current positions"
+  },
+  {
+   "name": "Recommended",
+   "capital": null,
+   "operating": null,
+   "note": "Not yet costed; staff and liaison time beyond current capacity"
+  },
+  {
+   "name": "Ambitious",
+   "capital": null,
+   "operating": null,
+   "note": "Not yet costed; dashboard and quarterly data"
+  }
+ ],
+ "dependencies": [
+  {
+   "function": "college communications",
+   "criticality": "high"
+  },
+  {
+   "function": "executive leadership",
+   "criticality": "high"
+  },
+  {
+   "function": "people and culture",
+   "criticality": "medium"
+  },
+  {
+   "function": "institutional records",
+   "criticality": "medium"
+  },
+  {
+   "function": "building operations",
+   "criticality": "low"
+  },
+  {
+   "function": "information technology",
+   "criticality": "low"
+  },
+  {
+   "function": "financial planning",
+   "criticality": "low"
+  }
+ ],
+ "asks": [
+  {
+   "title": "Will the College publish a yearly report that shows where it is behind?",
+   "askLevel": "Executive"
+  },
+  {
+   "title": "Confirm the recommended option: report every year, including where the College is behind.",
+   "askLevel": "Executive"
+  },
+  {
+   "title": "Which student channel should carry sustainability content each term?",
+   "askLevel": "Director"
+  },
+  {
+   "title": "Should each regional campus have a named sustainability liaison with time set aside?",
+   "askLevel": "Director"
+  },
+  {
+   "title": "Can the College adopt a twelve-month review rule for public sustainability pages?",
+   "askLevel": "Director"
+  }
+ ],
+ "kpis": [
+  {
+   "id": "reach",
+   "name": "Percentage of campus stakeholders reached through outreach and communications",
+   "planKpi": true,
+   "credit": "EN 1.2",
+   "unit": "per cent of students and employees, scored by STARS band",
+   "baseline": null,
+   "firstMeasured": "FY2026/27",
+   "target": "40 to 59% by Nov 2032"
+  },
+  {
+   "id": "criteria",
+   "name": "Outreach criteria",
+   "planKpi": false,
+   "credit": "EN 1.1",
+   "unit": "criteria of 6",
+   "baseline": 4,
+   "target": "6 by Nov 2028"
+  },
+  {
+   "id": "report",
+   "name": "Annual progress report",
+   "planKpi": false,
+   "credit": null,
+   "unit": "reports of 5",
+   "baseline": 0,
+   "target": "5 by FY2031/32"
+  }
+ ],
+ "activities": 39
+}
+</script>
+</body>
+</html>
